@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapping the Impact of AI through Data | UniGe</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="unige-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="mark-outer" cx="30" cy="30" r="28"/>
+          <path class="mark-shield" d="M30 8 L48 16 L48 36 Q48 48 30 54 Q12 48 12 36 L12 16 Z"/>
+          <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">Mapping AI Impact</span>
+          <span class="brand-sub">Università di Genova</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="pages/adoption.html">Adoption</a></li>
+          <li><a href="pages/investment.html">Investment</a></li>
+          <li><a href="pages/research.html">Research</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Mapping the Impact of AI through Data</h1>
+        <p class="subtitle">Group: Neural Cartographers · Team members: Yasin (lead) · Research Agent · Design Agent · Implementation Agent</p>
+        <p class="hero-lead">An interactive exploration of how artificial intelligence is reshaping economies, research, and society — grounded in open data from Stanford HAI, Eurostat, Our World in Data, OECD and Anthropic.</p>
+      </div>
+    </section>
+
+    <section id="project" class="section">
+      <div class="container">
+        <h2>1. Project Description</h2>
+        <p>This website is the living deliverable of the University of Genova course project <strong>Mapping the Impact of AI through Data</strong>. Our goal is to transform complex, multi-source statistics into clear, interactive visual narratives that help students, policymakers and citizens understand the real-world footprint of AI.</p>
+        <p>We deliberately combine global and European lenses: the Stanford AI Index provides frontier capability and investment signals, Eurostat captures enterprise adoption across EU member states, Our World in Data supplies long-term research and compute trends, while OECD.ai and Anthropic’s Economic Index add policy and labour-market texture.</p>
+
+        <h3>Data at hand</h3>
+        <ul class="data-list">
+          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford HAI AI Index Report 2026</a> — model performance, investment, incidents, public opinion</li>
+          <li><a href="https://ourworldindata.org/search?topics=Artificial+Intelligence&resultType=all" target="_blank" rel="noopener">Our World in Data – Artificial Intelligence</a> — publications, patents, compute, funding</li>
+          <li><a href="https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_ai/default/table?lang=en" target="_blank" rel="noopener">Eurostat isoc_eb_ai</a> — AI use by EU enterprises (size class & country)</li>
+          <li><a href="https://huggingface.co/datasets/Anthropic/EconomicIndex" target="_blank" rel="noopener">Anthropic Economic Index</a> — labour-market exposure signals</li>
+          <li><a href="https://oecd.ai/en/" target="_blank" rel="noopener">OECD.AI</a> — policy, incidents and international comparisons</li>
+        </ul>
+
+        <div class="highlight-box">
+          <h3>Key snapshot (2025 data)</h3>
+          <ul>
+            <li>20 % of EU enterprises (10+ employees) used at least one AI technology</li>
+            <li>55 % of large EU enterprises adopted AI</li>
+            <li>US private AI investment reached $285.9 billion</li>
+            <li>Industry produced >90 % of notable frontier models</li>
+            <li>Documented AI incidents rose to 362</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="pages" class="section alt">
+      <div class="container">
+        <h2>2. Visualisation Pages</h2>
+        <p>Each secondary page focuses on a distinct visualisation family. New pages will be added roughly every week as the course progresses.</p>
+
+        <article class="page-card">
+          <h3><a href="pages/adoption.html">Enterprise Adoption across Europe</a></h3>
+          <p>Interactive bar and choropleth-style views of Eurostat isoc_eb_ai data. Compare countries, size classes and year-over-year growth. Highlights Denmark (42 %), Finland (37.8 %) and the EU average of 20 %.</p>
+        </article>
+
+        <article class="page-card">
+          <h3><a href="pages/investment.html">Investment & Compute Scale</a></h3>
+          <p>Explores the explosion of private capital and training compute. Contrasts US leadership in private dollars with China’s dominance in publication volume and patent grants.</p>
+        </article>
+
+        <article class="page-card">
+          <h3><a href="pages/research.html">Research Output & Model Transparency</a></h3>
+          <p>Tracks scholarly publications, notable model releases, and the declining transparency of the most capable systems (Foundation Model Transparency Index).</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="method" class="section">
+      <div class="container">
+        <h2>3. Method & Principles</h2>
+        <ol>
+          <li><strong>Open data only</strong> — every figure links back to a public source.</li>
+          <li><strong>SVG + CSS selectors</strong> — charts are pure SVG styled exclusively via external CSS (no inline styles).</li>
+          <li><strong>Accessible structure</strong> — semantic HTML5, proper heading hierarchy, keyboard-friendly navigation.</li>
+          <li><strong>University identity</strong> — typography (Roboto Slab + Fira Sans) and colour palette inspired by UniGe visual guidelines.</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Neural Cartographers · Università di Genova · Course project “Mapping the Impact of AI through Data”</p>
+      <p>Repository: <a href="https://github.com/yasin6606/mapping-ai-impact">github.com/yasin6606/mapping-ai-impact</a></p>
+    </div>
+  </footer>
+</body>
+</html>
