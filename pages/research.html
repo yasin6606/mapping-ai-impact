@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research & Transparency · Mapping AI Impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="unige-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="mark-outer" cx="30" cy="30" r="28"/>
+          <path class="mark-shield" d="M30 8 L48 16 L48 36 Q48 48 30 54 Q12 48 12 36 L12 16 Z"/>
+          <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">Mapping AI Impact</span>
+          <span class="brand-sub">Università di Genova</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="investment.html">Investment</a></li>
+          <li><a href="research.html" class="active">Research</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Research Output & Model Transparency</h1>
+        <p class="subtitle">Publications · notable models · transparency index</p>
+        <p class="hero-lead">China leads in total AI publication volume; the United States still leads in high-impact patents and the majority of frontier models. Transparency of the most capable systems has declined.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Highlights from Stanford AI Index 2026</h2>
+        <ul>
+          <li>Industry produced <strong>>90 %</strong> of notable AI models in 2025</li>
+          <li>Foundation Model Transparency Index average fell from 58 → <strong>40</strong></li>
+          <li>Documented AI incidents rose to <strong>362</strong> (from 233)</li>
+          <li>US–China model performance gap effectively closed (≈2.7 % lead)</li>
+        </ul>
+
+        <div class="chart-wrap">
+          <h3 class="chart-title">Share of notable models by origin (illustrative 2025)</h3>
+          <svg class="svg-chart" viewBox="0 0 720 300" role="img" aria-labelledby="res-title">
+            <title id="res-title">Horizontal bars showing industry dominance</title>
+
+            <line class="grid-line" x1="160" y1="40" x2="160" y2="240"/>
+            <line class="grid-line" x1="160" y1="240" x2="660" y2="240"/>
+
+            <!-- Industry ~91 -->
+            <rect class="bar" x="160" y="60" width="460" height="36"/>
+            <text class="bar-label" x="630" y="84" text-anchor="start">91 %</text>
+            <text class="tick-label" x="150" y="84" text-anchor="end">Industry</text>
+
+            <!-- Academia / other -->
+            <rect class="bar" x="160" y="120" width="50" height="36"/>
+            <text class="bar-label" x="220" y="144" text-anchor="start">~9 %</text>
+            <text class="tick-label" x="150" y="144" text-anchor="end">Academia / other</text>
+
+            <text class="axis-label" x="410" y="270" text-anchor="middle">Share of notable frontier models (2025)</text>
+          </svg>
+        </div>
+
+        <h3>What we will visualise next</h3>
+        <p>Future iterations will add publication volume time-series (Our World in Data / CSET), patent maps, and a simple transparency scorecard for selected labs. All charts remain pure SVG styled exclusively through the shared CSS file.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Neural Cartographers · Università di Genova</p>
+    </div>
+  </footer>
+</body>
+</html>
