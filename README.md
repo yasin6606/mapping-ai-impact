@@ -1,10 +1,10 @@
 # Mapping the Impact of AI through Data
 
 **Università di Genova** · Course project  
-**Group:** Neural Cartographers  
-**Team members:** Yasin (lead) · Research Agent · Design Agent · Implementation Agent
+**Group:** Lumen  
+**Team members:** Yasin ([yasin6606](https://github.com/yasin6606)) · Bahar ([BaharbSalmas](https://github.com/BaharbSalmas)) · Pantea ([pantearezaee](https://github.com/pantearezaee))
 
-Interactive website that turns open AI statistics into clear visual narratives.
+An interactive website that turns open AI statistics into clear visual narratives.
 
 ## Live site (GitHub Pages)
 
@@ -45,7 +45,7 @@ New visualisation pages will be added roughly weekly as the course progresses.
 
 ### System architecture
 - [x] Public GitHub repository
-- [x] Shared with team + instructor (annalisabarla) — invite as collaborator if needed
+- [x] Shared with team members and instructor (annalisabarla)
 - [x] Content served via GitHub Pages
 
 ### HTML
@@ -63,12 +63,6 @@ New visualisation pages will be added roughly weekly as the course progresses.
 - [x] Body text → **Fira Sans**
 - [x] Colour & mark inspired by [id.unige.it](https://id.unige.it) (deep blue + accent orange/gold)
 
-## How the three agents collaborated
-
-1. **Research Agent** – harvested key figures from Stanford AI Index 2026, Eurostat isoc_eb_ai (2025), Our World in Data and OECD.AI; selected the most communicable indicators.
-2. **Design Agent** – defined UniGe-aligned palette, typography, layout system and pure-SVG chart language that never uses inline styles.
-3. **Implementation Agent** – wrote semantic HTML5, external CSS, responsive navigation and the first three visualisation pages; pushed everything to this public repo.
-
 ## Enabling GitHub Pages (one-time)
 
 1. Go to the repository **Settings → Pages**
@@ -79,4 +73,4 @@ New visualisation pages will be added roughly weekly as the course progresses.
 ## Licence & credits
 
 Data remain under the licences of their original publishers.  
-Website code © 2026 Neural Cartographers / Università di Genova course project.
+Website code © 2026 Group Lumen (Yasin, Bahar, Pantea) · Università di Genova course project.
