@@ -1,4 +1,4 @@
-/* Mapping the Impact of AI – Neural Cartographers
+/* Mapping the Impact of AI – Group Lumen
    All styles live here. No inline styles on SVG or elsewhere. */
 
 :root {
@@ -250,6 +250,12 @@ a:hover {
   font-size: 1.15rem;
   margin: 0 0 1rem;
   color: var(--unige-blue-dark);
+}
+
+.chart-note {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
 }
 
 .svg-chart {
