@@ -1,0 +1,361 @@
+/* Mapping the Impact of AI – Neural Cartographers
+   All styles live here. No inline styles on SVG or elsewhere. */
+
+:root {
+  --unige-blue: #003366;
+  --unige-blue-dark: #001f3f;
+  --unige-orange: #e87722;
+  --unige-gold: #c4a35a;
+  --bg: #f7f9fc;
+  --bg-alt: #eef2f7;
+  --text: #1a1a2e;
+  --text-muted: #4a5568;
+  --card: #ffffff;
+  --border: #d0d7e2;
+  --radius: 12px;
+  --shadow: 0 4px 20px rgba(0, 51, 102, 0.08);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Fira Sans", system-ui, sans-serif;
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+}
+
+h1, h2, h3, h4 {
+  font-family: "Roboto Slab", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--unige-blue-dark);
+}
+
+h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); margin-bottom: 0.4em; }
+h2 { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 0; }
+h3 { font-size: 1.25rem; }
+
+a {
+  color: var(--unige-blue);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: var(--unige-orange);
+}
+
+.container {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
+
+/* Header */
+.site-header {
+  background: var(--unige-blue-dark);
+  color: #fff;
+  padding: 0.85rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.unige-mark {
+  width: 48px;
+  height: 48px;
+}
+
+.mark-outer {
+  fill: none;
+  stroke: var(--unige-gold);
+  stroke-width: 2.5;
+}
+
+.mark-shield {
+  fill: var(--unige-blue);
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.mark-text {
+  fill: #fff;
+  font-family: "Roboto Slab", serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.brand-title {
+  display: block;
+  font-family: "Roboto Slab", serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.brand-sub {
+  display: block;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.main-nav a {
+  color: #e2e8f0;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 0.25rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.main-nav a:hover,
+.main-nav a.active {
+  color: #fff;
+  border-bottom-color: var(--unige-orange);
+}
+
+/* Hero */
+.hero {
+  background: linear-gradient(135deg, var(--unige-blue-dark) 0%, var(--unige-blue) 60%, #1a5276 100%);
+  color: #fff;
+  padding: 3.5rem 0 3rem;
+}
+
+.hero h1 {
+  color: #fff;
+  margin-top: 0;
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  opacity: 0.9;
+  margin: 0.5rem 0 1.25rem;
+  font-weight: 500;
+}
+
+.hero-lead {
+  max-width: 48rem;
+  font-size: 1.1rem;
+  opacity: 0.92;
+}
+
+/* Sections */
+.section {
+  padding: 3rem 0;
+}
+
+.section.alt {
+  background: var(--bg-alt);
+}
+
+.highlight-box {
+  background: var(--card);
+  border-left: 5px solid var(--unige-orange);
+  padding: 1.25rem 1.5rem;
+  margin-top: 1.75rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  box-shadow: var(--shadow);
+}
+
+.highlight-box ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.25rem;
+}
+
+.data-list {
+  padding-left: 1.25rem;
+}
+
+.data-list li {
+  margin-bottom: 0.45rem;
+}
+
+.page-card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.35rem 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.page-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.4rem;
+}
+
+.page-card p {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--unige-blue-dark);
+  color: #cbd5e1;
+  padding: 1.75rem 0;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.site-footer a {
+  color: #93c5fd;
+}
+
+/* ========== SVG chart styles (selectors only) ========== */
+
+.chart-wrap {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+  overflow-x: auto;
+}
+
+.chart-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 1.15rem;
+  margin: 0 0 1rem;
+  color: var(--unige-blue-dark);
+}
+
+.svg-chart {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Axes */
+.axis-line {
+  stroke: #94a3b8;
+  stroke-width: 1.5;
+  fill: none;
+}
+
+.axis-label {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 12px;
+  fill: var(--text-muted);
+}
+
+.tick-label {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 11px;
+  fill: var(--text);
+}
+
+/* Bars */
+.bar {
+  fill: var(--unige-blue);
+  transition: fill 0.2s ease;
+}
+
+.bar:hover {
+  fill: var(--unige-orange);
+}
+
+.bar-eu {
+  fill: var(--unige-orange);
+}
+
+.bar-label {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  fill: var(--text);
+}
+
+/* Line / area */
+.line-path {
+  fill: none;
+  stroke: var(--unige-blue);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.area-path {
+  fill: rgba(0, 51, 102, 0.12);
+  stroke: none;
+}
+
+.dot {
+  fill: var(--unige-blue);
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.dot:hover {
+  fill: var(--unige-orange);
+}
+
+/* Legend */
+.legend-swatch {
+  stroke: none;
+}
+
+.legend-eu {
+  fill: var(--unige-orange);
+}
+
+.legend-country {
+  fill: var(--unige-blue);
+}
+
+.legend-text {
+  font-family: "Fira Sans", sans-serif;
+  font-size: 12px;
+  fill: var(--text);
+}
+
+/* Grid */
+.grid-line {
+  stroke: #e2e8f0;
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+}
+
+/* Responsive tweaks */
+@media (max-width: 640px) {
+  .main-nav ul {
+    gap: 0.75rem;
+  }
+  .hero {
+    padding: 2.5rem 0 2rem;
+  }
+}
