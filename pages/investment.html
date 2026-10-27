@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Investment & Compute · Mapping AI Impact</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="unige-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="mark-outer" cx="30" cy="30" r="28"/>
+          <path class="mark-shield" d="M30 8 L48 16 L48 36 Q48 48 30 54 Q12 48 12 36 L12 16 Z"/>
+          <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">Mapping AI Impact</span>
+          <span class="brand-sub">Università di Genova</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="adoption.html">Adoption</a></li>
+          <li><a href="investment.html" class="active">Investment</a></li>
+          <li><a href="research.html">Research</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Investment & Compute Scale</h1>
+        <p class="subtitle">Stanford AI Index 2026 · private capital & training compute</p>
+        <p class="hero-lead">US private AI investment hit $285.9 billion in 2025 — more than 23× China’s reported private figure. Global corporate AI investment reached $581.7 billion.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Key figures</h2>
+        <ul>
+          <li>Global corporate AI investment 2025: <strong>$581.7 B</strong> (+130 % YoY)</li>
+          <li>US private AI investment: <strong>$285.9 B</strong></li>
+          <li>China private (reported): <strong>$12.4 B</strong></li>
+          <li>Industry share of notable models: <strong>>90 %</strong></li>
+        </ul>
+
+        <div class="chart-wrap">
+          <h3 class="chart-title">Illustrative growth of private AI investment (indexed, 2021 = 100)</h3>
+          <svg class="svg-chart" viewBox="0 0 720 340" role="img" aria-labelledby="inv-title">
+            <title id="inv-title">Line chart showing rapid rise in private AI investment</title>
+
+            <line class="grid-line" x1="80" y1="40" x2="80" y2="280"/>
+            <line class="grid-line" x1="80" y1="280" x2="680" y2="280"/>
+            <line class="grid-line" x1="80" y1="200" x2="680" y2="200"/>
+            <line class="grid-line" x1="80" y1="120" x2="680" y2="120"/>
+
+            <text class="axis-label" x="70" y="284" text-anchor="end">0</text>
+            <text class="axis-label" x="70" y="204" text-anchor="end">150</text>
+            <text class="axis-label" x="70" y="124" text-anchor="end">300</text>
+
+            <!-- area under curve -->
+            <path class="area-path" d="M100,260 L220,230 L340,180 L460,110 L580,55 L580,280 L100,280 Z"/>
+
+            <!-- line -->
+            <path class="line-path" d="M100,260 L220,230 L340,180 L460,110 L580,55"/>
+
+            <!-- dots -->
+            <circle class="dot" cx="100" cy="260" r="5"/>
+            <circle class="dot" cx="220" cy="230" r="5"/>
+            <circle class="dot" cx="340" cy="180" r="5"/>
+            <circle class="dot" cx="460" cy="110" r="5"/>
+            <circle class="dot" cx="580" cy="55" r="5"/>
+
+            <text class="tick-label" x="100" y="300" text-anchor="middle">2021</text>
+            <text class="tick-label" x="220" y="300" text-anchor="middle">2022</text>
+            <text class="tick-label" x="340" y="300" text-anchor="middle">2023</text>
+            <text class="tick-label" x="460" y="300" text-anchor="middle">2024</text>
+            <text class="tick-label" x="580" y="300" text-anchor="middle">2025</text>
+
+            <text class="axis-label" x="360" y="330" text-anchor="middle">Year</text>
+          </svg>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin:0.5rem 0 0">Illustrative index based on reported multi-year growth rates from Stanford AI Index. Absolute values differ by source methodology.</p>
+        </div>
+
+        <h3>Why it matters</h3>
+        <p>Capital concentration in a few jurisdictions and a handful of labs shapes which capabilities become available, at what price, and under which governance regimes. The same data also reveal a growing environmental footprint: training emissions and data-centre power demand are rising in parallel with investment.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Neural Cartographers · Università di Genova</p>
+    </div>
+  </footer>
+</body>
+</html>
