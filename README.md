@@ -1,8 +1,8 @@
 # Mapping the Impact of AI through Data
 
 **Università di Genova** · Course project  
-**Group:** Lumen  
-**Team members:** Yasin ([yasin6606](https://github.com/yasin6606)) · Bahar ([BaharbSalmas](https://github.com/BaharbSalmas)) · Pantea ([pantearezaee](https://github.com/pantearezaee))
+**Group:** Insights  
+**Team members:** Yasin ([yasin6606](https://github.com/yasin6606)) · Bahar ([BaharbSalmas](https://github.com/BaharbSalmas)) · Pantea ([pantearezaee](https://github.com/pantearezaee)) · Ferdaws
 
 An interactive website that turns open AI statistics into clear visual narratives.
 
@@ -73,4 +73,4 @@ New visualisation pages will be added roughly weekly as the course progresses.
 ## Licence & credits
 
 Data remain under the licences of their original publishers.  
-Website code © 2026 Group Lumen (Yasin, Bahar, Pantea) · Università di Genova course project.
+Website code © 2026 Group Insights (Yasin, Bahar, Pantea, Ferdaws) · Università di Genova course project.
