@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapping the Impact of AI through Data | UniGe</title>
+  <title>AI · Environment · Energy | Group Insights · UniGe</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <div class="blob blob-2" aria-hidden="true"></div>
+
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
@@ -19,16 +22,16 @@
           <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
         </svg>
         <div class="brand-text">
-          <span class="brand-title">Mapping AI Impact</span>
+          <span class="brand-title">AI · Environment</span>
           <span class="brand-sub">Università di Genova</span>
         </div>
       </div>
       <nav class="main-nav" aria-label="Main">
         <ul>
           <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="pages/adoption.html">Adoption</a></li>
-          <li><a href="pages/investment.html">Investment</a></li>
-          <li><a href="pages/research.html">Research</a></li>
+          <li><a href="pages/energy.html">Energy</a></li>
+          <li><a href="pages/water.html">Water</a></li>
+          <li><a href="pages/carbon.html">Carbon</a></li>
         </ul>
       </nav>
     </div>
@@ -37,35 +40,53 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Mapping the Impact of AI through Data</h1>
+        <h1>The Impact of AI on the Environment and Energy Consumption</h1>
         <p class="subtitle">Group Insights · Yasin · Bahar · Pantea · Ferdaws</p>
-        <p class="hero-lead">A quiet atlas of numbers that reveal how artificial intelligence is rewriting the map of work, research and everyday life. Built from open data so anyone can follow the threads.</p>
+        <p class="hero-lead">Every prompt, every training run, every data centre leaves a physical trace — in electricity, water and carbon. This site maps that footprint with open data so the invisible costs become visible.</p>
       </div>
     </section>
 
     <section id="project" class="section">
       <div class="container">
         <h2>1. Project Description</h2>
-        <p>This website is our contribution to the University of Genova course project <strong>Mapping the Impact of AI through Data</strong>. We set out to turn dense statistical reports into something you can actually read and explore — clear visual stories that show where AI is already present and where its shadow is still growing.</p>
-        <p>We draw from five public sources that speak different languages of the same phenomenon: the Stanford AI Index tracks the frontier of capability and capital; Eurostat records how European enterprises are adopting the technology; Our World in Data follows the long arc of research and compute; OECD.AI and the Anthropic Economic Index add policy and labour-market texture. Together they form a living map rather than a single snapshot.</p>
+        <p>This website is the course deliverable of <strong>Group Insights</strong> for the University of Genova project <em>Mapping the Impact of AI through Data</em>. We focus on one urgent thread: how artificial intelligence reshapes energy systems and environmental pressure.</p>
+        <p>Training frontier models and running inference at global scale already draws tens of gigawatts. Data centres built for AI used roughly 155 TWh in 2025 — about one third of all data-centre electricity — and that share is rising fast. Cooling those facilities also consumes vast amounts of water. Our goal is to turn dense reports from the IEA, Stanford HAI, Epoch AI and operator disclosures into clear visual stories.</p>
 
         <h3>Data at hand</h3>
         <ul class="data-list">
-          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford HAI AI Index Report 2026</a> — model performance, investment, incidents, public opinion</li>
-          <li><a href="https://ourworldindata.org/search?topics=Artificial+Intelligence&resultType=all" target="_blank" rel="noopener">Our World in Data – Artificial Intelligence</a> — publications, patents, compute, funding</li>
-          <li><a href="https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_ai/default/table?lang=en" target="_blank" rel="noopener">Eurostat isoc_eb_ai</a> — AI use by EU enterprises (size class & country)</li>
-          <li><a href="https://huggingface.co/datasets/Anthropic/EconomicIndex" target="_blank" rel="noopener">Anthropic Economic Index</a> — labour-market exposure signals</li>
-          <li><a href="https://oecd.ai/en/" target="_blank" rel="noopener">OECD.AI</a> — policy, incidents and international comparisons</li>
+          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai" target="_blank" rel="noopener">IEA – Key Questions on Energy and AI</a> — global electricity demand of data centres and AI-focused facilities</li>
+          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford HAI AI Index Report 2026</a> — power capacity, training emissions, water estimates</li>
+          <li><a href="https://epoch.ai/topics/energy" target="_blank" rel="noopener">Epoch AI – Energy research</a> — model training power and capacity trends</li>
+          <li><a href="https://ourworldindata.org/artificial-intelligence" target="_blank" rel="noopener">Our World in Data – Artificial Intelligence</a> — long-run context for compute and infrastructure</li>
+          <li>Operator environmental reports (Google, Microsoft, Meta, AWS) — site-level water and electricity disclosures</li>
         </ul>
 
+        <div class="stat-row">
+          <div class="stat-pill">
+            <span class="num">485 TWh</span>
+            <span class="label">All data centres, 2025 (IEA)</span>
+          </div>
+          <div class="stat-pill">
+            <span class="num">+50%</span>
+            <span class="label">AI data-centre growth in 2025</span>
+          </div>
+          <div class="stat-pill">
+            <span class="num">29.6 GW</span>
+            <span class="label">AI data-centre power capacity</span>
+          </div>
+          <div class="stat-pill">
+            <span class="num">~950 TWh</span>
+            <span class="label">Projected data centres by 2030</span>
+          </div>
+        </div>
+
         <div class="highlight-box">
-          <h3>Key snapshot (2025 data)</h3>
+          <h3>Why this matters</h3>
           <ul>
-            <li>20 % of EU enterprises (10+ employees) used at least one AI technology</li>
-            <li>55 % of large EU enterprises adopted AI</li>
-            <li>US private AI investment reached $285.9 billion</li>
-            <li>Industry produced >90 % of notable frontier models</li>
-            <li>Documented AI incidents rose to 362</li>
+            <li>AI-focused facilities already use about one third of global data-centre electricity and are the fastest-growing slice.</li>
+            <li>Training a single frontier model can emit tens of thousands of tonnes of CO₂ equivalent.</li>
+            <li>Inference water use for large models may exceed the annual drinking needs of millions of people.</li>
+            <li>Grid strain and new fossil generation risk undoing years of power-sector emissions progress in some regions.</li>
           </ul>
         </div>
       </div>
@@ -74,21 +95,21 @@
     <section id="pages" class="section alt">
       <div class="container">
         <h2>2. Visualisation Pages</h2>
-        <p>Each secondary page opens a different window onto the same landscape. New pages will appear roughly every week as the course unfolds.</p>
+        <p>Three secondary pages explore electricity, water and carbon. New charts will be added as the course continues.</p>
 
-        <article class="page-card">
-          <h3><a href="pages/adoption.html">Enterprise Adoption across Europe</a></h3>
-          <p>How many companies in each country have already invited AI into their daily work? A bar chart drawn from Eurostat shows Denmark leading at 42 %, the EU average resting at 20 %, and the clear gap between large and small firms.</p>
+        <article class="glass-card">
+          <h3><a href="pages/energy.html">Energy Demand</a></h3>
+          <p>How much electricity do data centres — and AI-focused ones in particular — already consume? A look at 2025 figures, growth rates and the path toward roughly 950 TWh by 2030.</p>
         </article>
 
-        <article class="page-card">
-          <h3><a href="pages/investment.html">Investment & Compute Scale</a></h3>
-          <p>Where the money flows, the models grow. This page traces the surge in private capital and the rising energy appetite of training runs, contrasting American investment leadership with other global patterns.</p>
+        <article class="glass-card">
+          <h3><a href="pages/water.html">Water Footprint</a></h3>
+          <p>Cooling is thirsty. We visualise operator disclosures, water-use effectiveness ranges, and estimates that link inference workloads to drinking-water equivalents.</p>
         </article>
 
-        <article class="page-card">
-          <h3><a href="pages/research.html">Research Output & Model Transparency</a></h3>
-          <p>Who publishes, who builds the most capable systems, and how open are those systems becoming? A look at publication volume, industry dominance and the declining transparency scores of frontier models.</p>
+        <article class="glass-card">
+          <h3><a href="pages/carbon.html">Carbon & Training</a></h3>
+          <p>From Grok 4’s estimated training emissions to the projected rise in data-centre CO₂. Where the carbon is generated and how efficiency and clean power can change the curve.</p>
         </article>
       </div>
     </section>
@@ -97,10 +118,10 @@
       <div class="container">
         <h2>3. Method & Principles</h2>
         <ol>
-          <li><strong>Open data only</strong> — every figure links back to a public source so the map can be verified.</li>
-          <li><strong>SVG + CSS selectors</strong> — charts are pure SVG styled exclusively through the external stylesheet (no inline styles).</li>
+          <li><strong>Open data only</strong> — every figure is tied to a public report or dataset so numbers can be verified.</li>
+          <li><strong>SVG + CSS selectors</strong> — charts are pure SVG, styled exclusively through the external stylesheet (no inline styles).</li>
           <li><strong>Accessible structure</strong> — semantic HTML5, clear heading hierarchy and keyboard-friendly navigation.</li>
-          <li><strong>University identity</strong> — typography (Roboto Slab for titles, Fira Sans for text) and a colour palette inspired by UniGe visual guidelines.</li>
+          <li><strong>University identity</strong> — Roboto Slab for titles, Fira Sans for body text, and a palette that still nods to UniGe while expressing the environmental theme.</li>
         </ol>
       </div>
     </section>
@@ -108,7 +129,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova · “Mapping the Impact of AI through Data”</p>
+      <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova</p>
       <p>Repository: <a href="https://github.com/yasin6606/mapping-ai-impact">github.com/yasin6606/mapping-ai-impact</a></p>
     </div>
   </footer>
