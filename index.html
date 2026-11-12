@@ -35,68 +35,80 @@
             <li><a href="pages/carbon.html">Carbon</a></li>
           </ul>
         </nav>
-        <button class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">◐</button>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle light/dark">◐</button>
       </div>
     </div>
   </header>
+
+  <button class="theme-toggle-fixed" type="button" aria-label="Toggle theme">◐</button>
 
   <main>
     <section class="hero">
       <div class="container">
         <h1>The Impact of AI on the Environment and Energy Consumption</h1>
         <p class="subtitle">Group Insights · Yasin · Bahar · Pantea · Ferdaws</p>
-        <p class="hero-lead">Data centres already draw hundreds of terawatt-hours. AI is the fastest-growing slice. This site maps electricity demand and environmental pressure using IEA annex figures and open generation data.</p>
+        <p class="hero-lead">Data centres used 416 TWh in 2024. Under IEA Base assumptions that rises to about 946 TWh by 2030. This site maps electricity demand and environmental pressure with open data.</p>
       </div>
     </section>
 
     <section id="project" class="section">
       <div class="container">
-        <h2>1. Project Description</h2>
-        <p>Group Insights documents two linked effects of AI: <strong>energy consumption</strong> (how much electricity data centres use) and <strong>environmental impact</strong> (emissions intensity, water for cooling, and pressure on grids). Numbers come mainly from the IEA Energy and AI data annex and from national generation statistics (Ember).</p>
-
-        <h3>Core data sources</h3>
+        <h2>1. Project description</h2>
+        <p>Group Insights documents two linked effects of AI:</p>
         <ul class="data-list">
-          <li><strong>IEA data annex (Energy and AI)</strong> — installed capacity, PUE, load factor, electricity consumption by segment and region, with Base / Lift-Off / High Efficiency / Headwinds scenarios to 2030–2035</li>
-          <li><strong>Ember yearly generation</strong> — electricity mix and CO₂ intensity by country and source (context for grid carbon intensity)</li>
-          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai" target="_blank" rel="noopener">IEA Key Questions on Energy and AI</a></li>
-          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford AI Index 2026</a> — complementary training and capacity estimates</li>
+          <li><strong>Energy consumption</strong> — how much electricity data centres draw (total, IT, by region and by scenario).</li>
+          <li><strong>Environment</strong> — water for cooling, grid carbon intensity, and scenario risk if demand follows Lift-Off instead of High Efficiency.</li>
         </ul>
+        <p>Primary numbers come from the <strong>IEA Energy and AI data annex</strong> (installed capacity, PUE, load factor, electricity by segment and region, four scenarios to 2030–2035). Grid intensity context uses Ember yearly generation statistics.</p>
 
+        <h3>Headline numbers (IEA annex)</h3>
         <div class="stat-row">
-          <div class="stat-pill"><span class="num">416 TWh</span><span class="label">World data centres 2024</span></div>
-          <div class="stat-pill"><span class="num">97 GW</span><span class="label">Installed capacity 2024</span></div>
-          <div class="stat-pill"><span class="num">946 TWh</span><span class="label">Base case 2030</span></div>
+          <div class="stat-pill"><span class="num">416 TWh</span><span class="label">World DCs 2024</span></div>
+          <div class="stat-pill"><span class="num">97 GW</span><span class="label">Capacity 2024</span></div>
+          <div class="stat-pill"><span class="num">946 TWh</span><span class="label">Base 2030</span></div>
           <div class="stat-pill"><span class="num">1.41</span><span class="label">Global PUE 2024</span></div>
+        </div>
+        <div class="stat-row">
+          <div class="stat-pill"><span class="num">1264 TWh</span><span class="label">Lift-Off 2030</span></div>
+          <div class="stat-pill"><span class="num">792 TWh</span><span class="label">High Efficiency 2030</span></div>
+          <div class="stat-pill"><span class="num">669 TWh</span><span class="label">Headwinds 2030</span></div>
+          <div class="stat-pill"><span class="num">1.14</span><span class="label">Hyperscale PUE</span></div>
         </div>
 
         <div class="highlight-box">
-          <h3>Two parts of the story</h3>
+          <h3>What the scenarios mean</h3>
           <ul>
-            <li><strong>Energy consumption</strong> — total electricity, IT vs facility overhead (PUE), hyperscale vs enterprise, regional split (US, China, Europe).</li>
-            <li><strong>Environment</strong> — emissions intensity of the grids that supply data centres, water for cooling, and scenario risk if demand grows under Lift-Off assumptions.</li>
+            <li><strong>Base</strong> — continuation of recent growth; about 946 TWh in 2030.</li>
+            <li><strong>Lift-Off</strong> — faster AI and cloud expansion; about 1 264 TWh.</li>
+            <li><strong>High Efficiency</strong> — stronger efficiency and workload discipline; about 792 TWh.</li>
+            <li><strong>Headwinds</strong> — constrained build-out; about 669 TWh.</li>
           </ul>
         </div>
+
+        <h3>Data sources</h3>
+        <ul class="data-list">
+          <li>IEA data annex (Energy and AI) — capacity, PUE, load factor, TWh by world / region / segment</li>
+          <li>Ember yearly generation — electricity mix and emissions intensity by country</li>
+          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai" target="_blank" rel="noopener">IEA Key Questions on Energy and AI</a></li>
+          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford AI Index 2026</a></li>
+        </ul>
       </div>
     </section>
 
     <section id="pages" class="section alt">
       <div class="container">
-        <h2>2. Visualisation pages</h2>
-        <p>Three focused pages. All charts are pure SVG styled only with CSS classes.</p>
-
+        <h2>2. Pages</h2>
         <article class="glass-card">
           <h3><a href="pages/energy.html">Energy consumption</a></h3>
-          <p>World data-centre electricity: 269 TWh (2020) → 416 TWh (2024) → 946 TWh (Base 2030). Capacity, PUE, load factor, and four IEA scenarios. Regional share: United States ~44% of 2024 consumption.</p>
+          <p>2020–2024 history, four 2030 scenarios, capacity and PUE, regional split (US, China, Europe, Asia Pacific). Hyperscale vs colocation vs enterprise.</p>
         </article>
-
         <article class="glass-card">
           <h3><a href="pages/water.html">Water & cooling</a></h3>
-          <p>Why cooling matters, operator WUE ranges, and how electricity intensity on different grids multiplies the water footprint beyond on-site use.</p>
+          <p>How PUE and WUE turn electricity into water demand; on-site vs power-plant water; link to volume scenarios.</p>
         </article>
-
         <article class="glass-card">
           <h3><a href="pages/carbon.html">Environment & carbon</a></h3>
-          <p>Grid carbon intensity, training-scale emissions, and how High Efficiency vs Lift-Off scenarios change the environmental load by 2030.</p>
+          <p>Volume risk across scenarios (about 500 TWh gap High Eff. vs Lift-Off) and the role of grid carbon intensity.</p>
         </article>
       </div>
     </section>
@@ -105,10 +117,10 @@
       <div class="container">
         <h2>3. Method</h2>
         <ol>
-          <li>Open data only — IEA annex + Ember generation series.</li>
-          <li>SVG charts styled exclusively via CSS selectors (no inline styles).</li>
+          <li>Open data only (IEA annex + Ember).</li>
+          <li>SVG charts styled only with CSS selectors — no inline styles.</li>
           <li>Semantic HTML5; Roboto Slab (titles) + Fira Sans (body).</li>
-          <li>Light / dark theme toggle (preference stored in the browser).</li>
+          <li>Light / dark theme (header button + floating button; preference saved).</li>
         </ol>
       </div>
     </section>
@@ -122,25 +134,30 @@
   </footer>
 
   <script>
-    (function () {
-      var root = document.documentElement;
-      var btn = document.querySelector('.theme-toggle');
-      var key = 'insights-theme';
-      var saved = localStorage.getItem(key);
-      if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
-      function sync() {
-        var t = root.getAttribute('data-theme') || 'dark';
-        btn.textContent = t === 'dark' ? '☀' : '☾';
-        btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
-      }
-      sync();
-      btn.addEventListener('click', function () {
-        var next = (root.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
-        root.setAttribute('data-theme', next);
-        localStorage.setItem(key, next);
-        sync();
+  (function () {
+    var root = document.documentElement;
+    var key = 'insights-theme';
+    var saved = localStorage.getItem(key);
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+    function sync() {
+      var t = root.getAttribute('data-theme') || 'dark';
+      var label = t === 'dark' ? '☀' : '☾';
+      document.querySelectorAll('.theme-toggle, .theme-toggle-fixed').forEach(function (btn) {
+        btn.textContent = label;
+        btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light' : 'Switch to dark');
       });
-    })();
+    }
+    sync();
+    function toggle() {
+      var next = (root.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem(key, next);
+      sync();
+    }
+    document.querySelectorAll('.theme-toggle, .theme-toggle-fixed').forEach(function (btn) {
+      btn.addEventListener('click', toggle);
+    });
+  })();
   </script>
 </body>
 </html>
