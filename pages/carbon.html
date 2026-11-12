@@ -37,26 +37,26 @@
       </div>
     </div>
   </header>
+  <button class="theme-toggle-fixed" type="button" aria-label="Toggle theme">◐</button>
 
   <main>
     <section class="hero">
       <div class="container">
         <h1>Environment & carbon</h1>
         <p class="subtitle">Emissions intensity · scenario risk · grid context</p>
-        <p class="hero-lead">Carbon impact of AI is the product of electricity volume and the carbon intensity of the grids that supply it. IEA scenarios show how large the volume term can become; Ember generation data shows how clean or dirty each country’s mix is.</p>
+        <p class="hero-lead">Carbon impact = electricity volume × grid intensity. IEA scenarios set the volume range; Ember generation data shows how clean or dirty each country’s mix is.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <h2>Volume risk: four 2030 pathways</h2>
-        <p>Using the IEA annex, world data-centre electricity in 2030 ranges from 669 TWh (Headwinds) to 1 264 TWh (Lift-Off). Base sits at 946 TWh; High Efficiency at 792 TWh. The gap between High Efficiency and Lift-Off is almost 500 TWh — enough to change national emissions trajectories if supplied by fossil plant.</p>
-
+        <p>World data-centre electricity in 2030: Headwinds 669 TWh · High Efficiency 792 · Base 946 · Lift-Off 1 264 TWh. The gap between High Efficiency and Lift-Off is almost 500 TWh — enough to change national emissions paths if supplied by fossil plant.</p>
         <div class="stat-row">
-          <div class="stat-pill"><span class="num">669</span><span class="label">TWh Headwinds 2030</span></div>
-          <div class="stat-pill"><span class="num">792</span><span class="label">TWh High Eff.</span></div>
-          <div class="stat-pill"><span class="num">946</span><span class="label">TWh Base</span></div>
-          <div class="stat-pill"><span class="num">1264</span><span class="label">TWh Lift-Off</span></div>
+          <div class="stat-pill"><span class="num">669</span><span class="label">Headwinds 2030</span></div>
+          <div class="stat-pill"><span class="num">792</span><span class="label">High Eff.</span></div>
+          <div class="stat-pill"><span class="num">946</span><span class="label">Base</span></div>
+          <div class="stat-pill"><span class="num">1264</span><span class="label">Lift-Off</span></div>
         </div>
 
         <div class="chart-wrap">
@@ -70,35 +70,31 @@
             <text class="axis-label" x="82" y="254" text-anchor="end">0</text>
             <text class="axis-label" x="82" y="174" text-anchor="end">600</text>
             <text class="axis-label" x="82" y="94" text-anchor="end">1 200</text>
-
             <rect class="bar" x="130" y="161" width="80" height="89"/>
             <text class="bar-label" x="170" y="153" text-anchor="middle">669</text>
             <text class="tick-label" x="170" y="275" text-anchor="middle">Headwinds</text>
-
             <rect class="bar" x="250" y="145" width="80" height="105"/>
             <text class="bar-label" x="290" y="137" text-anchor="middle">792</text>
             <text class="tick-label" x="290" y="275" text-anchor="middle">High Eff.</text>
-
             <rect class="bar" x="370" y="124" width="80" height="126"/>
             <text class="bar-label" x="410" y="116" text-anchor="middle">946</text>
             <text class="tick-label" x="410" y="275" text-anchor="middle">Base</text>
-
             <rect class="bar bar-accent" x="490" y="82" width="80" height="168"/>
             <text class="bar-label" x="530" y="74" text-anchor="middle">1264</text>
             <text class="tick-label" x="530" y="275" text-anchor="middle">Lift-Off</text>
           </svg>
-          <p class="chart-note">IEA Data annex – World Data, electricity consumption scenarios for 2030.</p>
+          <p class="chart-note">IEA Data annex – World Data, 2030 electricity scenarios.</p>
         </div>
 
-        <h2>Intensity: the other half of the equation</h2>
-        <p>Ember’s yearly generation series shows large differences in gCO₂e/kWh across countries. A data centre on a hydro- or nuclear-heavy grid emits far less per TWh than one on a coal-heavy grid. Training emissions estimates (tens of thousands of tonnes CO₂e for a single frontier model) sit on top of this continuous operational load.</p>
+        <h2>Intensity: the other half</h2>
+        <p>Ember’s generation series shows large differences in gCO₂e/kWh by country. A data centre on a hydro- or nuclear-heavy grid emits far less per TWh than one on a coal-heavy grid. Training emissions (tens of thousands of tonnes CO₂e for one frontier model) sit on top of continuous operational load.</p>
 
         <div class="highlight-box">
           <h3>Environmental takeaway</h3>
           <ul>
-            <li><strong>Energy volume</strong> is set by capacity growth, utilisation and PUE — IEA scenarios quantify the range.</li>
-            <li><strong>Carbon intensity</strong> is set by the local power mix — Ember data make country differences visible.</li>
-            <li>Policy levers that cut volume (efficiency, workload placement) and intensity (clean power PPAs, siting) both matter; neither alone is enough under Lift-Off demand.</li>
+            <li><strong>Volume</strong> is set by capacity growth, utilisation and PUE — IEA scenarios quantify the range.</li>
+            <li><strong>Intensity</strong> is set by the local power mix — Ember data make country differences visible.</li>
+            <li>Levers: efficiency and workload placement (volume); clean power PPAs and siting (intensity). Both matter under Lift-Off demand.</li>
           </ul>
         </div>
       </div>
@@ -111,7 +107,7 @@
     </div>
   </footer>
   <script>
-    (function(){var r=document.documentElement,b=document.querySelector('.theme-toggle'),k='insights-theme',s=localStorage.getItem(k);if(s==='light'||s==='dark')r.setAttribute('data-theme',s);function sync(){var t=r.getAttribute('data-theme')||'dark';b.textContent=t==='dark'?'☀':'☾';}sync();b.addEventListener('click',function(){var n=(r.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem(k,n);sync();});})();
+  (function(){var root=document.documentElement,key='insights-theme',s=localStorage.getItem(key);if(s==='light'||s==='dark')root.setAttribute('data-theme',s);function sync(){var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});}sync();function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem(key,n);sync();}document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggle);});})();
   </script>
 </body>
 </html>
