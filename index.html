@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,14 +26,17 @@
           <span class="brand-sub">Università di Genova</span>
         </div>
       </div>
-      <nav class="main-nav" aria-label="Main">
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="pages/energy.html">Energy</a></li>
-          <li><a href="pages/water.html">Water</a></li>
-          <li><a href="pages/carbon.html">Carbon</a></li>
-        </ul>
-      </nav>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="pages/energy.html">Energy</a></li>
+            <li><a href="pages/water.html">Water</a></li>
+            <li><a href="pages/carbon.html">Carbon</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle light or dark theme" title="Toggle theme">◐</button>
+      </div>
     </div>
   </header>
 
@@ -42,51 +45,35 @@
       <div class="container">
         <h1>The Impact of AI on the Environment and Energy Consumption</h1>
         <p class="subtitle">Group Insights · Yasin · Bahar · Pantea · Ferdaws</p>
-        <p class="hero-lead">Every prompt, every training run, every data centre leaves a physical trace — in electricity, water and carbon. This site maps that footprint with open data so the invisible costs become visible.</p>
+        <p class="hero-lead">Data centres already draw hundreds of terawatt-hours. AI is the fastest-growing slice. This site maps electricity demand and environmental pressure using IEA annex figures and open generation data.</p>
       </div>
     </section>
 
     <section id="project" class="section">
       <div class="container">
         <h2>1. Project Description</h2>
-        <p>This website is the course deliverable of <strong>Group Insights</strong> for the University of Genova project <em>Mapping the Impact of AI through Data</em>. We focus on one urgent thread: how artificial intelligence reshapes energy systems and environmental pressure.</p>
-        <p>Training frontier models and running inference at global scale already draws tens of gigawatts. Data centres built for AI used roughly 155 TWh in 2025 — about one third of all data-centre electricity — and that share is rising fast. Cooling those facilities also consumes vast amounts of water. Our goal is to turn dense reports from the IEA, Stanford HAI, Epoch AI and operator disclosures into clear visual stories.</p>
+        <p>Group Insights documents two linked effects of AI: <strong>energy consumption</strong> (how much electricity data centres use) and <strong>environmental impact</strong> (emissions intensity, water for cooling, and pressure on grids). Numbers come mainly from the IEA Energy and AI data annex and from national generation statistics (Ember).</p>
 
-        <h3>Data at hand</h3>
+        <h3>Core data sources</h3>
         <ul class="data-list">
-          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai" target="_blank" rel="noopener">IEA – Key Questions on Energy and AI</a> — global electricity demand of data centres and AI-focused facilities</li>
-          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford HAI AI Index Report 2026</a> — power capacity, training emissions, water estimates</li>
-          <li><a href="https://epoch.ai/topics/energy" target="_blank" rel="noopener">Epoch AI – Energy research</a> — model training power and capacity trends</li>
-          <li><a href="https://ourworldindata.org/artificial-intelligence" target="_blank" rel="noopener">Our World in Data – Artificial Intelligence</a> — long-run context for compute and infrastructure</li>
-          <li>Operator environmental reports (Google, Microsoft, Meta, AWS) — site-level water and electricity disclosures</li>
+          <li><strong>IEA data annex (Energy and AI)</strong> — installed capacity, PUE, load factor, electricity consumption by segment and region, with Base / Lift-Off / High Efficiency / Headwinds scenarios to 2030–2035</li>
+          <li><strong>Ember yearly generation</strong> — electricity mix and CO₂ intensity by country and source (context for grid carbon intensity)</li>
+          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai" target="_blank" rel="noopener">IEA Key Questions on Energy and AI</a></li>
+          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford AI Index 2026</a> — complementary training and capacity estimates</li>
         </ul>
 
         <div class="stat-row">
-          <div class="stat-pill">
-            <span class="num">485 TWh</span>
-            <span class="label">All data centres, 2025 (IEA)</span>
-          </div>
-          <div class="stat-pill">
-            <span class="num">+50%</span>
-            <span class="label">AI data-centre growth in 2025</span>
-          </div>
-          <div class="stat-pill">
-            <span class="num">29.6 GW</span>
-            <span class="label">AI data-centre power capacity</span>
-          </div>
-          <div class="stat-pill">
-            <span class="num">~950 TWh</span>
-            <span class="label">Projected data centres by 2030</span>
-          </div>
+          <div class="stat-pill"><span class="num">416 TWh</span><span class="label">World data centres 2024</span></div>
+          <div class="stat-pill"><span class="num">97 GW</span><span class="label">Installed capacity 2024</span></div>
+          <div class="stat-pill"><span class="num">946 TWh</span><span class="label">Base case 2030</span></div>
+          <div class="stat-pill"><span class="num">1.41</span><span class="label">Global PUE 2024</span></div>
         </div>
 
         <div class="highlight-box">
-          <h3>Why this matters</h3>
+          <h3>Two parts of the story</h3>
           <ul>
-            <li>AI-focused facilities already use about one third of global data-centre electricity and are the fastest-growing slice.</li>
-            <li>Training a single frontier model can emit tens of thousands of tonnes of CO₂ equivalent.</li>
-            <li>Inference water use for large models may exceed the annual drinking needs of millions of people.</li>
-            <li>Grid strain and new fossil generation risk undoing years of power-sector emissions progress in some regions.</li>
+            <li><strong>Energy consumption</strong> — total electricity, IT vs facility overhead (PUE), hyperscale vs enterprise, regional split (US, China, Europe).</li>
+            <li><strong>Environment</strong> — emissions intensity of the grids that supply data centres, water for cooling, and scenario risk if demand grows under Lift-Off assumptions.</li>
           </ul>
         </div>
       </div>
@@ -94,34 +81,34 @@
 
     <section id="pages" class="section alt">
       <div class="container">
-        <h2>2. Visualisation Pages</h2>
-        <p>Three secondary pages explore electricity, water and carbon. New charts will be added as the course continues.</p>
+        <h2>2. Visualisation pages</h2>
+        <p>Three focused pages. All charts are pure SVG styled only with CSS classes.</p>
 
         <article class="glass-card">
-          <h3><a href="pages/energy.html">Energy Demand</a></h3>
-          <p>How much electricity do data centres — and AI-focused ones in particular — already consume? A look at 2025 figures, growth rates and the path toward roughly 950 TWh by 2030.</p>
+          <h3><a href="pages/energy.html">Energy consumption</a></h3>
+          <p>World data-centre electricity: 269 TWh (2020) → 416 TWh (2024) → 946 TWh (Base 2030). Capacity, PUE, load factor, and four IEA scenarios. Regional share: United States ~44% of 2024 consumption.</p>
         </article>
 
         <article class="glass-card">
-          <h3><a href="pages/water.html">Water Footprint</a></h3>
-          <p>Cooling is thirsty. We visualise operator disclosures, water-use effectiveness ranges, and estimates that link inference workloads to drinking-water equivalents.</p>
+          <h3><a href="pages/water.html">Water & cooling</a></h3>
+          <p>Why cooling matters, operator WUE ranges, and how electricity intensity on different grids multiplies the water footprint beyond on-site use.</p>
         </article>
 
         <article class="glass-card">
-          <h3><a href="pages/carbon.html">Carbon & Training</a></h3>
-          <p>From Grok 4’s estimated training emissions to the projected rise in data-centre CO₂. Where the carbon is generated and how efficiency and clean power can change the curve.</p>
+          <h3><a href="pages/carbon.html">Environment & carbon</a></h3>
+          <p>Grid carbon intensity, training-scale emissions, and how High Efficiency vs Lift-Off scenarios change the environmental load by 2030.</p>
         </article>
       </div>
     </section>
 
     <section id="method" class="section">
       <div class="container">
-        <h2>3. Method & Principles</h2>
+        <h2>3. Method</h2>
         <ol>
-          <li><strong>Open data only</strong> — every figure is tied to a public report or dataset so numbers can be verified.</li>
-          <li><strong>SVG + CSS selectors</strong> — charts are pure SVG, styled exclusively through the external stylesheet (no inline styles).</li>
-          <li><strong>Accessible structure</strong> — semantic HTML5, clear heading hierarchy and keyboard-friendly navigation.</li>
-          <li><strong>University identity</strong> — Roboto Slab for titles, Fira Sans for body text, and a palette that still nods to UniGe while expressing the environmental theme.</li>
+          <li>Open data only — IEA annex + Ember generation series.</li>
+          <li>SVG charts styled exclusively via CSS selectors (no inline styles).</li>
+          <li>Semantic HTML5; Roboto Slab (titles) + Fira Sans (body).</li>
+          <li>Light / dark theme toggle (preference stored in the browser).</li>
         </ol>
       </div>
     </section>
@@ -133,5 +120,27 @@
       <p>Repository: <a href="https://github.com/yasin6606/mapping-ai-impact">github.com/yasin6606/mapping-ai-impact</a></p>
     </div>
   </footer>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('.theme-toggle');
+      var key = 'insights-theme';
+      var saved = localStorage.getItem(key);
+      if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+      function sync() {
+        var t = root.getAttribute('data-theme') || 'dark';
+        btn.textContent = t === 'dark' ? '☀' : '☾';
+        btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light theme' : 'Switch to dark theme');
+      }
+      sync();
+      btn.addEventListener('click', function () {
+        var next = (root.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem(key, next);
+        sync();
+      });
+    })();
+  </script>
 </body>
 </html>
