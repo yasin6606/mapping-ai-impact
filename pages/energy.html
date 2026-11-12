@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energy Demand · AI Environment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="unige-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="mark-outer" cx="30" cy="30" r="28"/>
+          <path class="mark-shield" d="M30 8 L48 16 L48 36 Q48 48 30 54 Q12 48 12 36 L12 16 Z"/>
+          <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">AI · Environment</span>
+          <span class="brand-sub">Università di Genova</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="energy.html" class="active">Energy</a></li>
+          <li><a href="water.html">Water</a></li>
+          <li><a href="carbon.html">Carbon</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Energy Demand</h1>
+        <p class="subtitle">Electricity for data centres and AI workloads</p>
+        <p class="hero-lead">In 2025 global data centres used about 485 TWh of electricity. Facilities built for AI grew 50% in a single year and already account for roughly one third of that total.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>The scale of demand</h2>
+        <p>According to the International Energy Agency, electricity consumption from data centres rose 17% in 2025. The AI-focused slice grew much faster. Power capacity dedicated to AI has reached about 29.6 GW — comparable to the peak demand of New York State.</p>
+
+        <div class="stat-row">
+          <div class="stat-pill"><span class="num">485 TWh</span><span class="label">All data centres 2025</span></div>
+          <div class="stat-pill"><span class="num">155 TWh</span><span class="label">AI-focused ≈ 2025</span></div>
+          <div class="stat-pill"><span class="num">+50%</span><span class="label">AI growth in 2025</span></div>
+          <div class="stat-pill"><span class="num">~950 TWh</span><span class="label">IEA outlook 2030</span></div>
+        </div>
+
+        <div class="chart-wrap">
+          <h3 class="chart-title">Illustrative electricity use (TWh)</h3>
+          <svg class="svg-chart" viewBox="0 0 720 340" role="img" aria-labelledby="en-title">
+            <title id="en-title">Bar chart of data centre electricity</title>
+            <line class="grid-line" x1="90" y1="40" x2="90" y2="280"/>
+            <line class="grid-line" x1="90" y1="280" x2="660" y2="280"/>
+            <line class="grid-line" x1="90" y1="200" x2="660" y2="200"/>
+            <line class="grid-line" x1="90" y1="120" x2="660" y2="120"/>
+
+            <text class="axis-label" x="80" y="284" text-anchor="end">0</text>
+            <text class="axis-label" x="80" y="204" text-anchor="end">300</text>
+            <text class="axis-label" x="80" y="124" text-anchor="end">600</text>
+            <text class="axis-label" x="80" y="54" text-anchor="end">900</text>
+
+            <!-- 2024 ~415 -->
+            <rect class="bar" x="140" y="162" width="70" height="118"/>
+            <text class="bar-label" x="175" y="154" text-anchor="middle">~415</text>
+            <text class="tick-label" x="175" y="300" text-anchor="middle">2024</text>
+
+            <!-- 2025 485 -->
+            <rect class="bar" x="280" y="142" width="70" height="138"/>
+            <text class="bar-label" x="315" y="134" text-anchor="middle">485</text>
+            <text class="tick-label" x="315" y="300" text-anchor="middle">2025</text>
+
+            <!-- AI slice 155 -->
+            <rect class="bar bar-accent" x="420" y="236" width="70" height="44"/>
+            <text class="bar-label" x="455" y="228" text-anchor="middle">155</text>
+            <text class="tick-label" x="455" y="300" text-anchor="middle">AI 2025</text>
+
+            <!-- 2030 ~950 -->
+            <rect class="bar" x="560" y="40" width="70" height="240"/>
+            <text class="bar-label" x="595" y="32" text-anchor="middle">~950</text>
+            <text class="tick-label" x="595" y="300" text-anchor="middle">2030</text>
+
+            <rect class="legend-swatch legend-teal" x="140" y="318" width="12" height="12"/>
+            <text class="legend-text" x="158" y="328">All data centres</text>
+            <rect class="legend-swatch legend-coral" x="300" y="318" width="12" height="12"/>
+            <text class="legend-text" x="318" y="328">AI-focused</text>
+          </svg>
+          <p class="chart-note">Source: IEA Key Questions on Energy and AI (2026 updates). 2024 and 2030 figures are approximate central estimates.</p>
+        </div>
+
+        <h3>What drives the growth</h3>
+        <p>Training runs for frontier models now require multi-megawatt clusters for weeks or months. Inference — answering everyday prompts — already accounts for a large and rising share of total AI electricity because it runs continuously at global scale. Efficiency per query is improving, yet total volume is rising faster.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova</p>
+    </div>
+  </footer>
+</body>
+</html>
