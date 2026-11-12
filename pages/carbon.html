@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Carbon & Training · AI Environment</title>
+  <title>Environment & carbon · AI Environment</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body>
-  <div class="blob blob-3" aria-hidden="true"></div>
+  <div class="blob blob-1" aria-hidden="true"></div>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">
@@ -24,64 +24,83 @@
           <span class="brand-sub">Università di Genova</span>
         </div>
       </div>
-      <nav class="main-nav" aria-label="Main">
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="energy.html">Energy</a></li>
-          <li><a href="water.html">Water</a></li>
-          <li><a href="carbon.html" class="active">Carbon</a></li>
-        </ul>
-      </nav>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="energy.html">Energy</a></li>
+            <li><a href="water.html">Water</a></li>
+            <li><a href="carbon.html" class="active">Carbon</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
+      </div>
     </div>
   </header>
 
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Carbon & Training</h1>
-        <p class="subtitle">Emissions from model development and data-centre power</p>
-        <p class="hero-lead">Training one frontier model can release tens of thousands of tonnes of CO₂ equivalent. Scaling that activity — and the continuous inference that follows — is already visible in national electricity and emissions statistics.</p>
+        <h1>Environment & carbon</h1>
+        <p class="subtitle">Emissions intensity · scenario risk · grid context</p>
+        <p class="hero-lead">Carbon impact of AI is the product of electricity volume and the carbon intensity of the grids that supply it. IEA scenarios show how large the volume term can become; Ember generation data shows how clean or dirty each country’s mix is.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2>Training footprints</h2>
-        <p>Estimates vary with assumptions about hardware utilisation, electricity carbon intensity and system boundaries. The Stanford AI Index 2026 cites an estimate of roughly 72,816 tonnes of CO₂ equivalent for training Grok 4 — many times higher than earlier large models. Inference emissions now dominate the long-run total because they continue for the life of the deployed system.</p>
+        <h2>Volume risk: four 2030 pathways</h2>
+        <p>Using the IEA annex, world data-centre electricity in 2030 ranges from 669 TWh (Headwinds) to 1 264 TWh (Lift-Off). Base sits at 946 TWh; High Efficiency at 792 TWh. The gap between High Efficiency and Lift-Off is almost 500 TWh — enough to change national emissions trajectories if supplied by fossil plant.</p>
 
         <div class="stat-row">
-          <div class="stat-pill"><span class="num">~73 kt</span><span class="label">Grok 4 training (est.)</span></div>
-          <div class="stat-pill"><span class="num">29.6 GW</span><span class="label">AI data-centre capacity</span></div>
-          <div class="stat-pill"><span class="num">Rising</span><span class="label">Scope 2 & 3 pressure</span></div>
+          <div class="stat-pill"><span class="num">669</span><span class="label">TWh Headwinds 2030</span></div>
+          <div class="stat-pill"><span class="num">792</span><span class="label">TWh High Eff.</span></div>
+          <div class="stat-pill"><span class="num">946</span><span class="label">TWh Base</span></div>
+          <div class="stat-pill"><span class="num">1264</span><span class="label">TWh Lift-Off</span></div>
         </div>
 
         <div class="chart-wrap">
-          <h3 class="chart-title">Relative training emissions (illustrative index)</h3>
-          <svg class="svg-chart" viewBox="0 0 720 280" role="img" aria-labelledby="c-title">
-            <title id="c-title">Bars comparing training emission scale</title>
-            <line class="grid-line" x1="100" y1="30" x2="100" y2="220"/>
-            <line class="grid-line" x1="100" y1="220" x2="650" y2="220"/>
+          <h3 class="chart-title">2030 electricity scenarios (TWh)</h3>
+          <svg class="svg-chart" viewBox="0 0 720 300" role="img" aria-labelledby="c1">
+            <title id="c1">Scenario bars</title>
+            <line class="grid-line" x1="90" y1="30" x2="90" y2="250"/>
+            <line class="grid-line" x1="90" y1="250" x2="660" y2="250"/>
+            <line class="grid-line" x1="90" y1="170" x2="660" y2="170"/>
+            <line class="grid-line" x1="90" y1="90" x2="660" y2="90"/>
+            <text class="axis-label" x="82" y="254" text-anchor="end">0</text>
+            <text class="axis-label" x="82" y="174" text-anchor="end">600</text>
+            <text class="axis-label" x="82" y="94" text-anchor="end">1 200</text>
 
-            <rect class="bar" x="140" y="180" width="90" height="40"/>
-            <text class="bar-label" x="185" y="172" text-anchor="middle">~1×</text>
-            <text class="tick-label" x="185" y="245" text-anchor="middle">Earlier
-large model</text>
+            <rect class="bar" x="130" y="161" width="80" height="89"/>
+            <text class="bar-label" x="170" y="153" text-anchor="middle">669</text>
+            <text class="tick-label" x="170" y="275" text-anchor="middle">Headwinds</text>
 
-            <rect class="bar" x="320" y="120" width="90" height="100"/>
-            <text class="bar-label" x="365" y="112" text-anchor="middle">~3–5×</text>
-            <text class="tick-label" x="365" y="245" text-anchor="middle">Mid-size
-frontier</text>
+            <rect class="bar" x="250" y="145" width="80" height="105"/>
+            <text class="bar-label" x="290" y="137" text-anchor="middle">792</text>
+            <text class="tick-label" x="290" y="275" text-anchor="middle">High Eff.</text>
 
-            <rect class="bar bar-accent" x="500" y="40" width="90" height="180"/>
-            <text class="bar-label" x="545" y="32" text-anchor="middle">~10–14×</text>
-            <text class="tick-label" x="545" y="245" text-anchor="middle">Grok 4
-scale</text>
+            <rect class="bar" x="370" y="124" width="80" height="126"/>
+            <text class="bar-label" x="410" y="116" text-anchor="middle">946</text>
+            <text class="tick-label" x="410" y="275" text-anchor="middle">Base</text>
+
+            <rect class="bar bar-accent" x="490" y="82" width="80" height="168"/>
+            <text class="bar-label" x="530" y="74" text-anchor="middle">1264</text>
+            <text class="tick-label" x="530" y="275" text-anchor="middle">Lift-Off</text>
           </svg>
-          <p class="chart-note">Schematic comparison based on published order-of-magnitude estimates (Stanford AI Index / Epoch AI). Exact ratios depend on methodology.</p>
+          <p class="chart-note">IEA Data annex – World Data, electricity consumption scenarios for 2030.</p>
         </div>
 
-        <h3>Grid and policy context</h3>
-        <p>Where new data centres connect to fossil-heavy grids — or bring their own gas generation — the carbon intensity of AI can rise even while model efficiency improves. Clean power purchase agreements, better utilisation, and smaller specialised models for routine tasks are the main levers available today. Transparent reporting of both training and inference energy remains incomplete across the industry.</p>
+        <h2>Intensity: the other half of the equation</h2>
+        <p>Ember’s yearly generation series shows large differences in gCO₂e/kWh across countries. A data centre on a hydro- or nuclear-heavy grid emits far less per TWh than one on a coal-heavy grid. Training emissions estimates (tens of thousands of tonnes CO₂e for a single frontier model) sit on top of this continuous operational load.</p>
+
+        <div class="highlight-box">
+          <h3>Environmental takeaway</h3>
+          <ul>
+            <li><strong>Energy volume</strong> is set by capacity growth, utilisation and PUE — IEA scenarios quantify the range.</li>
+            <li><strong>Carbon intensity</strong> is set by the local power mix — Ember data make country differences visible.</li>
+            <li>Policy levers that cut volume (efficiency, workload placement) and intensity (clean power PPAs, siting) both matter; neither alone is enough under Lift-Off demand.</li>
+          </ul>
+        </div>
       </div>
     </section>
   </main>
@@ -91,5 +110,8 @@ scale</text>
       <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova</p>
     </div>
   </footer>
+  <script>
+    (function(){var r=document.documentElement,b=document.querySelector('.theme-toggle'),k='insights-theme',s=localStorage.getItem(k);if(s==='light'||s==='dark')r.setAttribute('data-theme',s);function sync(){var t=r.getAttribute('data-theme')||'dark';b.textContent=t==='dark'?'☀':'☾';}sync();b.addEventListener('click',function(){var n=(r.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem(k,n);sync();});})();
+  </script>
 </body>
 </html>
