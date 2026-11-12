@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon & Training · AI Environment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+  <div class="blob blob-3" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="unige-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="mark-outer" cx="30" cy="30" r="28"/>
+          <path class="mark-shield" d="M30 8 L48 16 L48 36 Q48 48 30 54 Q12 48 12 36 L12 16 Z"/>
+          <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">AI · Environment</span>
+          <span class="brand-sub">Università di Genova</span>
+        </div>
+      </div>
+      <nav class="main-nav" aria-label="Main">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="energy.html">Energy</a></li>
+          <li><a href="water.html">Water</a></li>
+          <li><a href="carbon.html" class="active">Carbon</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Carbon & Training</h1>
+        <p class="subtitle">Emissions from model development and data-centre power</p>
+        <p class="hero-lead">Training one frontier model can release tens of thousands of tonnes of CO₂ equivalent. Scaling that activity — and the continuous inference that follows — is already visible in national electricity and emissions statistics.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Training footprints</h2>
+        <p>Estimates vary with assumptions about hardware utilisation, electricity carbon intensity and system boundaries. The Stanford AI Index 2026 cites an estimate of roughly 72,816 tonnes of CO₂ equivalent for training Grok 4 — many times higher than earlier large models. Inference emissions now dominate the long-run total because they continue for the life of the deployed system.</p>
+
+        <div class="stat-row">
+          <div class="stat-pill"><span class="num">~73 kt</span><span class="label">Grok 4 training (est.)</span></div>
+          <div class="stat-pill"><span class="num">29.6 GW</span><span class="label">AI data-centre capacity</span></div>
+          <div class="stat-pill"><span class="num">Rising</span><span class="label">Scope 2 & 3 pressure</span></div>
+        </div>
+
+        <div class="chart-wrap">
+          <h3 class="chart-title">Relative training emissions (illustrative index)</h3>
+          <svg class="svg-chart" viewBox="0 0 720 280" role="img" aria-labelledby="c-title">
+            <title id="c-title">Bars comparing training emission scale</title>
+            <line class="grid-line" x1="100" y1="30" x2="100" y2="220"/>
+            <line class="grid-line" x1="100" y1="220" x2="650" y2="220"/>
+
+            <rect class="bar" x="140" y="180" width="90" height="40"/>
+            <text class="bar-label" x="185" y="172" text-anchor="middle">~1×</text>
+            <text class="tick-label" x="185" y="245" text-anchor="middle">Earlier
+large model</text>
+
+            <rect class="bar" x="320" y="120" width="90" height="100"/>
+            <text class="bar-label" x="365" y="112" text-anchor="middle">~3–5×</text>
+            <text class="tick-label" x="365" y="245" text-anchor="middle">Mid-size
+frontier</text>
+
+            <rect class="bar bar-accent" x="500" y="40" width="90" height="180"/>
+            <text class="bar-label" x="545" y="32" text-anchor="middle">~10–14×</text>
+            <text class="tick-label" x="545" y="245" text-anchor="middle">Grok 4
+scale</text>
+          </svg>
+          <p class="chart-note">Schematic comparison based on published order-of-magnitude estimates (Stanford AI Index / Epoch AI). Exact ratios depend on methodology.</p>
+        </div>
+
+        <h3>Grid and policy context</h3>
+        <p>Where new data centres connect to fossil-heavy grids — or bring their own gas generation — the carbon intensity of AI can rise even while model efficiency improves. Clean power purchase agreements, better utilisation, and smaller specialised models for routine tasks are the main levers available today. Transparent reporting of both training and inference energy remains incomplete across the industry.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova</p>
+    </div>
+  </footer>
+</body>
+</html>
