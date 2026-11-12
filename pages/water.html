@@ -37,21 +37,21 @@
       </div>
     </div>
   </header>
+  <button class="theme-toggle-fixed" type="button" aria-label="Toggle theme">◐</button>
 
   <main>
     <section class="hero">
       <div class="container">
         <h1>Water & cooling</h1>
         <p class="subtitle">Environmental side of data-centre heat rejection</p>
-        <p class="hero-lead">Every TWh of electricity that is not free-air cooled requires water somewhere — either on site or at the power plant. As data-centre load grows from 416 TWh (2024) toward 946 TWh (Base 2030), water demand scales with it.</p>
+        <p class="hero-lead">Every TWh that is not free-air cooled needs water on site or at the power plant. As load grows from 416 TWh (2024) toward 946 TWh (Base 2030), water demand scales with it.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
         <h2>Why water follows electricity</h2>
-        <p>PUE measures facility overhead. A PUE of 1.41 means roughly 29% of site power is cooling and other non-IT load. Evaporative cooling turns part of that energy into water consumption. Published water-use effectiveness (WUE) for large operators typically sits between about 0.12 and 0.9 litres per kWh of IT energy, depending on climate and design.</p>
-
+        <p>PUE 1.41 means about 29% of site power is cooling and other non-IT load. Evaporative cooling turns part of that into water use. Operator WUE typically ranges from about 0.12 to 0.9 L per kWh of IT energy, depending on climate and design.</p>
         <div class="stat-row">
           <div class="stat-pill"><span class="num">1.41</span><span class="label">Global PUE 2024</span></div>
           <div class="stat-pill"><span class="num">1.14</span><span class="label">Hyperscale PUE</span></div>
@@ -75,18 +75,18 @@
             <text class="tick-label" x="140" y="158" text-anchor="end">EU reporting avg</text>
             <text class="axis-label" x="400" y="240" text-anchor="middle">Litres / kWh IT</text>
           </svg>
-          <p class="chart-note">Order-of-magnitude operator and regulatory ranges. Boundaries differ (on-site only vs full supply chain).</p>
+          <p class="chart-note">Order-of-magnitude operator and regulatory ranges. Boundaries differ.</p>
         </div>
 
         <h2>Indirect water</h2>
-        <p>Power plants that generate the electricity also consume or withdraw water. On many grids the water embedded in electricity exceeds on-site cooling. Therefore the environmental water footprint of AI is not only a cooling-design problem; it is also a grid-mix problem. Regions with high renewable share and dry cooling reduce both direct and indirect demand.</p>
+        <p>Power plants also use water. On many grids the water embedded in electricity exceeds on-site cooling. The AI water footprint is therefore both a cooling-design problem and a grid-mix problem. Clean power and dry cooling cut both direct and indirect demand.</p>
 
         <div class="highlight-box">
           <h3>Link to energy scenarios</h3>
           <ul>
-            <li>Base 2030 (946 TWh) roughly doubles 2024 water pressure if WUE stays constant.</li>
-            <li>Lift-Off (1 264 TWh) multiplies the same pressure further.</li>
-            <li>High Efficiency (792 TWh) and lower PUE cut the water bill even before cooling technology improves.</li>
+            <li>Base 2030 (946 TWh) roughly doubles 2024 water pressure if WUE is unchanged.</li>
+            <li>Lift-Off (1 264 TWh) multiplies that pressure further.</li>
+            <li>High Efficiency (792 TWh) and lower PUE reduce the water bill before cooling tech improves.</li>
           </ul>
         </div>
       </div>
@@ -99,7 +99,7 @@
     </div>
   </footer>
   <script>
-    (function(){var r=document.documentElement,b=document.querySelector('.theme-toggle'),k='insights-theme',s=localStorage.getItem(k);if(s==='light'||s==='dark')r.setAttribute('data-theme',s);function sync(){var t=r.getAttribute('data-theme')||'dark';b.textContent=t==='dark'?'☀':'☾';}sync();b.addEventListener('click',function(){var n=(r.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';r.setAttribute('data-theme',n);localStorage.setItem(k,n);sync();});})();
+  (function(){var root=document.documentElement,key='insights-theme',s=localStorage.getItem(key);if(s==='light'||s==='dark')root.setAttribute('data-theme',s);function sync(){var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});}sync();function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem(key,n);sync();}document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggle);});})();
   </script>
 </body>
 </html>
