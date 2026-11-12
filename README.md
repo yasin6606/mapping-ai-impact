@@ -1,14 +1,12 @@
-# Mapping the Impact of AI through Data
+# The Impact of AI on the Environment and Energy Consumption
 
-**Università di Genova** · Course project  
+**Università di Genova** · Course project *Mapping the Impact of AI through Data*  
 **Group:** Insights  
-**Team members:** Yasin ([yasin6606](https://github.com/yasin6606)) · Bahar ([BaharbSalmas](https://github.com/BaharbSalmas)) · Pantea ([pantearezaee](https://github.com/pantearezaee)) · Ferdaws
+**Team members:** Yasin · Bahar · Pantea · Ferdaws
 
-An interactive website that turns open AI statistics into clear visual narratives.
+Interactive website that maps electricity, water and carbon footprints of AI using open data.
 
-## Live site (GitHub Pages)
-
-Once Pages is enabled (Settings → Pages → Deploy from branch `main` / root):
+## Live site
 
 **https://yasin6606.github.io/mapping-ai-impact/**
 
@@ -16,61 +14,35 @@ Once Pages is enabled (Settings → Pages → Deploy from branch `main` / root):
 
 https://github.com/yasin6606/mapping-ai-impact
 
-## What this project does
-
-We map the real-world footprint of artificial intelligence using only public data:
+## Theme & sources
 
 | Source | Focus |
 |--------|--------|
-| [Stanford HAI AI Index 2026](https://hai.stanford.edu/ai-index/2026-ai-index-report) | Model performance, investment, incidents, opinion |
-| [Our World in Data – AI](https://ourworldindata.org/search?topics=Artificial+Intelligence&resultType=all) | Publications, patents, compute, funding |
-| [Eurostat isoc_eb_ai](https://ec.europa.eu/eurostat/databrowser/view/isoc_eb_ai/default/table?lang=en) | Enterprise AI adoption by country & size |
-| [Anthropic Economic Index](https://huggingface.co/datasets/Anthropic/EconomicIndex) | Labour-market signals |
-| [OECD.AI](https://oecd.ai/en/) | Policy & international comparisons |
+| [IEA – Energy and AI](https://www.iea.org/reports/key-questions-on-energy-and-ai) | Data-centre & AI electricity demand |
+| [Stanford HAI AI Index 2026](https://hai.stanford.edu/ai-index/2026-ai-index-report) | Power capacity, training emissions, water estimates |
+| [Epoch AI – Energy](https://epoch.ai/topics/energy) | Training power trends |
+| Operator ESG reports | Site-level water & electricity |
 
 ## Site structure
 
 ```
-index.html                 ← main page (title, group, project description, data list, section previews)
-css/styles.css             ← ALL styling (Roboto Slab + Fira Sans, UniGe palette)
+index.html          ← main page
+css/styles.css      ← liquid glass design (Roboto Slab + Fira Sans)
 pages/
-  adoption.html            ← Eurostat bar chart (SVG + CSS selectors)
-  investment.html          ← Investment / compute line chart
-  research.html            ← Model origin & transparency
+  energy.html       ← electricity demand & growth
+  water.html        ← cooling & WUE
+  carbon.html       ← training emissions & grid context
 ```
-
-New visualisation pages will be added roughly weekly as the course progresses.
 
 ## Requirements checklist
 
-### System architecture
-- [x] Public GitHub repository
-- [x] Shared with team members and instructor (annalisabarla)
-- [x] Content served via GitHub Pages
+- [x] Public GitHub repo + GitHub Pages
+- [x] `index.html` with title, group + members, project description, secondary-page previews
+- [x] Semantic HTML5 (headings, paragraphs, lists)
+- [x] All CSS in dedicated file; SVG styled only via selectors (no inline styles)
+- [x] Roboto Slab (titles) + Fira Sans (body)
 
-### HTML
-- [x] `index.html` is the entry point
-- [x] Proper semantic structure: `h1`–`h3`, paragraphs, ordered & unordered lists
-- [x] Valid HTML5 (validate at https://validator.w3.org/)
+## Licence
 
-### SVG
-- [x] Charts are pure SVG
-- [x] **No inline styles** — every visual property controlled by CSS selectors (`.bar`, `.line-path`, `.axis-label` …)
-
-### Style
-- [x] All CSS lives in a dedicated file (`css/styles.css`)
-- [x] Titles & headings → **Roboto Slab**
-- [x] Body text → **Fira Sans**
-- [x] Colour & mark inspired by [id.unige.it](https://id.unige.it) (deep blue + accent orange/gold)
-
-## Enabling GitHub Pages (one-time)
-
-1. Go to the repository **Settings → Pages**
-2. Under “Build and deployment” choose **Source: Deploy from a branch**
-3. Branch: `main` · Folder: `/ (root)`
-4. Save. The site will be live at `https://yasin6606.github.io/mapping-ai-impact/` within a minute or two.
-
-## Licence & credits
-
-Data remain under the licences of their original publishers.  
-Website code © 2026 Group Insights (Yasin, Bahar, Pantea, Ferdaws) · Università di Genova course project.
+Data under original publishers’ licences.  
+Site © 2026 Group Insights · Università di Genova.
