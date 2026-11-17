@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Water & cooling · AI Environment</title>
+  <title>Water & cooling · Group Insights</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -29,6 +29,7 @@
           <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="energy.html">Energy</a></li>
+            <li><a href="europe.html">Europe</a></li>
             <li><a href="water.html" class="active">Water</a></li>
             <li><a href="carbon.html">Carbon</a></li>
           </ul>
@@ -43,50 +44,30 @@
     <section class="hero">
       <div class="container">
         <h1>Water & cooling</h1>
-        <p class="subtitle">Environmental side of data-centre heat rejection</p>
-        <p class="hero-lead">Every TWh that is not free-air cooled needs water on site or at the power plant. As load grows from 416 TWh (2024) toward 946 TWh (Base 2030), water demand scales with it.</p>
+        <p class="subtitle">Environmental side of heat rejection</p>
+        <p class="hero-lead">Electricity that is not free-air cooled needs water on site or at the power plant. As data-centre load grows, water demand scales—unless cooling design and grid mix improve.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2>Why water follows electricity</h2>
-        <p>PUE 1.41 means about 29% of site power is cooling and other non-IT load. Evaporative cooling turns part of that into water use. Operator WUE typically ranges from about 0.12 to 0.9 L per kWh of IT energy, depending on climate and design.</p>
+        <h2>From PUE to water</h2>
+        <p>A global average PUE near 1.41 means a large share of site power is cooling and other overhead. Hyperscale sites often report PUE closer to 1.1–1.2. Water-use effectiveness (WUE) for large operators commonly falls between about 0.12 and 0.9 litres per kWh of IT energy, depending on climate and design.</p>
         <div class="stat-row">
-          <div class="stat-pill"><span class="num">1.41</span><span class="label">Global PUE 2024</span></div>
-          <div class="stat-pill"><span class="num">1.14</span><span class="label">Hyperscale PUE</span></div>
+          <div class="stat-pill"><span class="num">1.41</span><span class="label">Indicative global PUE</span></div>
+          <div class="stat-pill"><span class="num">~1.14</span><span class="label">Hyperscale PUE</span></div>
           <div class="stat-pill"><span class="num">0.12–0.9</span><span class="label">L/kWh WUE range</span></div>
         </div>
 
-        <div class="chart-wrap">
-          <h3 class="chart-title">Illustrative WUE (L per kWh IT)</h3>
-          <svg class="svg-chart" viewBox="0 0 720 260" role="img" aria-labelledby="w1">
-            <title id="w1">WUE comparison</title>
-            <line class="grid-line" x1="150" y1="25" x2="150" y2="210"/>
-            <line class="grid-line" x1="150" y1="210" x2="640" y2="210"/>
-            <rect class="bar" x="150" y="40" width="55" height="26"/>
-            <text class="bar-label" x="215" y="58" text-anchor="start">0.12</text>
-            <text class="tick-label" x="140" y="58" text-anchor="end">Best reported</text>
-            <rect class="bar" x="150" y="90" width="120" height="26"/>
-            <text class="bar-label" x="280" y="108" text-anchor="start">0.27</text>
-            <text class="tick-label" x="140" y="108" text-anchor="end">Typical large</text>
-            <rect class="bar bar-accent" x="150" y="140" width="260" height="26"/>
-            <text class="bar-label" x="420" y="158" text-anchor="start">0.58</text>
-            <text class="tick-label" x="140" y="158" text-anchor="end">EU reporting avg</text>
-            <text class="axis-label" x="400" y="240" text-anchor="middle">Litres / kWh IT</text>
-          </svg>
-          <p class="chart-note">Order-of-magnitude operator and regulatory ranges. Boundaries differ.</p>
-        </div>
-
         <h2>Indirect water</h2>
-        <p>Power plants also use water. On many grids the water embedded in electricity exceeds on-site cooling. The AI water footprint is therefore both a cooling-design problem and a grid-mix problem. Clean power and dry cooling cut both direct and indirect demand.</p>
+        <p>Power plants withdraw and consume water too. On many grids, water embedded in electricity exceeds on-site cooling. So the AI water footprint is both a cooling problem and a grid-mix problem. Dry cooling, free air, and clean power cut both.</p>
 
         <div class="highlight-box">
-          <h3>Link to energy scenarios</h3>
+          <h3>Link to demand scenarios</h3>
           <ul>
-            <li>Base 2030 (946 TWh) roughly doubles 2024 water pressure if WUE is unchanged.</li>
-            <li>Lift-Off (1 264 TWh) multiplies that pressure further.</li>
-            <li>High Efficiency (792 TWh) and lower PUE reduce the water bill before cooling tech improves.</li>
+            <li>Higher TWh pathways (Base, Lift-Off) raise water pressure if WUE is unchanged.</li>
+            <li>High Efficiency and better PUE reduce the bill before new cooling tech arrives.</li>
+            <li>Location (cool climate + clean grid) multiplies the benefit.</li>
           </ul>
         </div>
       </div>
@@ -95,7 +76,7 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova</p>
+      <p>© 2026 Group Insights · Pantea, Bahar, Yasin, Ferdaws · Università di Genova</p>
     </div>
   </footer>
   <script>
