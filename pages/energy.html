@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Energy consumption · AI Environment</title>
+  <title>Energy demand · Group Insights</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="../js/charts.js"></script>
 </head>
 <body>
   <div class="blob blob-1" aria-hidden="true"></div>
@@ -29,6 +31,7 @@
           <ul>
             <li><a href="../index.html">Home</a></li>
             <li><a href="energy.html" class="active">Energy</a></li>
+            <li><a href="europe.html">Europe</a></li>
             <li><a href="water.html">Water</a></li>
             <li><a href="carbon.html">Carbon</a></li>
           </ul>
@@ -42,107 +45,60 @@
   <main>
     <section class="hero">
       <div class="container">
-        <h1>Energy consumption</h1>
-        <p class="subtitle">Data-centre electricity · IEA Energy and AI annex</p>
-        <p class="hero-lead">World data centres: 269 TWh (2020) → 361 (2023) → 416 TWh (2024). Base 2030 ≈ 946 TWh. Lift-Off ≈ 1 264 TWh. High Efficiency ≈ 792 TWh. Headwinds ≈ 669 TWh.</p>
+        <h1>Energy demand</h1>
+        <p class="subtitle">Supporting questions 1–2 · Growth · AI share · Uncertainty</p>
+        <p class="hero-lead">Global data-centre electricity is rising fast. AI is a major driver of new load, but published “AI share” figures depend on definitions and are uncertain. We separate total data-centre demand from AI-related estimates.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
-        <h2>World electricity use (TWh)</h2>
-        <p>Figures from the IEA data annex (World Data). Total includes IT load plus facility overhead (cooling, power conversion) measured by PUE.</p>
+        <h2>1. How has consumption changed—and where is it headed?</h2>
+        <p>IEA-linked figures put world data-centre electricity near <strong>415–485 TWh</strong> in the mid-2020s (about 1.5% of global electricity). Growth has been double-digit. In the IEA Base case, demand roughly doubles to around <strong>945–950 TWh by 2030</strong> (~3% of global electricity). Other cases span roughly 670–1 260 TWh depending on efficiency, AI uptake and grid constraints.</p>
 
         <div class="stat-row">
-          <div class="stat-pill"><span class="num">269</span><span class="label">TWh 2020</span></div>
-          <div class="stat-pill"><span class="num">361</span><span class="label">TWh 2023</span></div>
-          <div class="stat-pill"><span class="num">416</span><span class="label">TWh 2024</span></div>
-          <div class="stat-pill"><span class="num">946</span><span class="label">Base 2030</span></div>
+          <div class="stat-pill"><span class="num">~416</span><span class="label">TWh around 2024</span></div>
+          <div class="stat-pill"><span class="num">~950</span><span class="label">TWh Base 2030</span></div>
+          <div class="stat-pill"><span class="num">~15%/yr</span><span class="label">Growth 2024–30 (Base)</span></div>
+          <div class="stat-pill"><span class="num">~3%</span><span class="label">Share of world electricity 2030</span></div>
         </div>
 
         <div class="chart-wrap">
-          <h3 class="chart-title">Total data-centre electricity (TWh)</h3>
-          <svg class="svg-chart" viewBox="0 0 720 360" role="img" aria-labelledby="e1">
-            <title id="e1">Bar chart of data centre electricity scenarios</title>
-            <line class="grid-line" x1="80" y1="30" x2="80" y2="290"/>
-            <line class="grid-line" x1="80" y1="290" x2="680" y2="290"/>
-            <line class="grid-line" x1="80" y1="210" x2="680" y2="210"/>
-            <line class="grid-line" x1="80" y1="130" x2="680" y2="130"/>
-            <line class="grid-line" x1="80" y1="50" x2="680" y2="50"/>
-            <text class="axis-label" x="72" y="294" text-anchor="end">0</text>
-            <text class="axis-label" x="72" y="214" text-anchor="end">400</text>
-            <text class="axis-label" x="72" y="134" text-anchor="end">800</text>
-            <text class="axis-label" x="72" y="54" text-anchor="end">1 200</text>
-            <rect class="bar" x="100" y="236" width="55" height="54"/>
-            <text class="bar-label" x="127" y="228" text-anchor="middle">269</text>
-            <text class="tick-label" x="127" y="310" text-anchor="middle">2020</text>
-            <rect class="bar" x="180" y="218" width="55" height="72"/>
-            <text class="bar-label" x="207" y="210" text-anchor="middle">361</text>
-            <text class="tick-label" x="207" y="310" text-anchor="middle">2023</text>
-            <rect class="bar" x="260" y="207" width="55" height="83"/>
-            <text class="bar-label" x="287" y="199" text-anchor="middle">416</text>
-            <text class="tick-label" x="287" y="310" text-anchor="middle">2024</text>
-            <rect class="bar" x="360" y="101" width="55" height="189"/>
-            <text class="bar-label" x="387" y="93" text-anchor="middle">946</text>
-            <text class="tick-label" x="387" y="310" text-anchor="middle">Base 30</text>
-            <rect class="bar bar-accent" x="440" y="38" width="55" height="252"/>
-            <text class="bar-label" x="467" y="30" text-anchor="middle">1264</text>
-            <text class="tick-label" x="467" y="310" text-anchor="middle">Lift-Off</text>
-            <rect class="bar" x="520" y="132" width="55" height="158"/>
-            <text class="bar-label" x="547" y="124" text-anchor="middle">792</text>
-            <text class="tick-label" x="547" y="310" text-anchor="middle">Hi-Eff</text>
-            <rect class="bar" x="600" y="156" width="55" height="134"/>
-            <text class="bar-label" x="627" y="148" text-anchor="middle">669</text>
-            <text class="tick-label" x="627" y="310" text-anchor="middle">Headwinds</text>
-          </svg>
-          <p class="chart-note">Source: IEA Data annex – Energy and AI (World Data).</p>
+          <h3 class="chart-title">Data-centre electricity (TWh) — history and Base outlook</h3>
+          <div id="chart-growth"></div>
+          <p class="chart-note">Solid line: historical / recent estimates. Dashed: Base-case style projection to 2030. Values rounded from IEA annex and related publications. Not a forecast of AI-only load.</p>
         </div>
 
-        <h2>Capacity, PUE, load factor</h2>
-        <p>Installed capacity: 60 GW (2020) → 83 GW (2023) → 97 GW (2024). IT capacity: 38 → 57 → 68 GW. Global PUE improved from 1.53 to 1.41; hyperscale sites already near 1.14. Load factor stays near 49%.</p>
-        <div class="stat-row">
-          <div class="stat-pill"><span class="num">97 GW</span><span class="label">Capacity 2024</span></div>
-          <div class="stat-pill"><span class="num">68 GW</span><span class="label">IT capacity 2024</span></div>
-          <div class="stat-pill"><span class="num">1.41</span><span class="label">PUE total</span></div>
-          <div class="stat-pill"><span class="num">1.14</span><span class="label">PUE hyperscale</span></div>
-        </div>
-
-        <h2>By segment (2024 electricity, TWh)</h2>
-        <p>Hyperscale 166 · Colocation and service provider 144 · Enterprise 106. IT electricity alone was 295 TWh (hyperscale 146, colo 94, enterprise 55).</p>
-
-        <h2>Regional demand 2024</h2>
-        <p>United States ≈ 183 TWh (~44% of world). China ≈ 102. Europe ≈ 68. Asia Pacific total ≈ 150 (includes China). Base 2030: US ≈ 426 TWh, China ≈ 277 TWh, Europe ≈ 113 TWh.</p>
-
+        <h3>Four 2030 pathways (IEA-style sensitivity)</h3>
         <div class="chart-wrap">
-          <h3 class="chart-title">Regional electricity 2024 (TWh)</h3>
-          <svg class="svg-chart" viewBox="0 0 720 280" role="img" aria-labelledby="e2">
-            <title id="e2">Horizontal bars by region</title>
-            <line class="grid-line" x1="160" y1="30" x2="160" y2="240"/>
-            <line class="grid-line" x1="160" y1="240" x2="660" y2="240"/>
-            <rect class="bar" x="160" y="40" width="420" height="28"/>
-            <text class="bar-label" x="590" y="60" text-anchor="start">183</text>
-            <text class="tick-label" x="150" y="60" text-anchor="end">United States</text>
-            <rect class="bar" x="160" y="85" width="235" height="28"/>
-            <text class="bar-label" x="405" y="105" text-anchor="start">102</text>
-            <text class="tick-label" x="150" y="105" text-anchor="end">China</text>
-            <rect class="bar" x="160" y="130" width="156" height="28"/>
-            <text class="bar-label" x="326" y="150" text-anchor="start">68</text>
-            <text class="tick-label" x="150" y="150" text-anchor="end">Europe</text>
-            <rect class="bar" x="160" y="175" width="345" height="28"/>
-            <text class="bar-label" x="515" y="195" text-anchor="start">150</text>
-            <text class="tick-label" x="150" y="195" text-anchor="end">Asia Pacific</text>
-            <text class="axis-label" x="400" y="265" text-anchor="middle">TWh (2024)</text>
-          </svg>
-          <p class="chart-note">IEA Regional Data. Asia Pacific includes China.</p>
+          <div id="chart-scenarios"></div>
+          <p class="chart-note">Headwinds · High Efficiency · Base · Lift-Off. The gap between High Efficiency and Lift-Off is on the order of 500 TWh.</p>
         </div>
+
+        <h2>2. What about AI’s share—and how uncertain is it?</h2>
+        <p>Total data-centre demand is better measured than the slice that is “AI”. Estimates of AI-focused load vary because of:</p>
+        <ul class="data-list">
+          <li><strong>Definitions</strong> — training only vs training + inference; accelerated servers only vs whole facility.</li>
+          <li><strong>Boundaries</strong> — IT power vs full site (PUE); on-site generation vs grid.</li>
+          <li><strong>Disclosure</strong> — operators rarely publish AI-specific kWh.</li>
+        </ul>
+        <p>IEA work highlights that accelerated servers (strongly linked to AI) grow much faster than conventional servers—on the order of ~30% per year in the Base case versus ~9% for conventional. AI-focused facilities can account for a large share of <em>growth</em> even when their share of the <em>stock</em> is still developing. Treat any single “X% is AI” headline as uncertain.</p>
 
         <div class="highlight-box">
-          <h3>Takeaway</h3>
+          <h3>How to read the numbers</h3>
           <ul>
-            <li>US + China dominate absolute TWh today and in Base 2030.</li>
-            <li>PUE is improving (especially hyperscale), but volume growth still outruns efficiency in Base and Lift-Off.</li>
-            <li>High Efficiency keeps 2030 under 800 TWh; Lift-Off exceeds 1 200 TWh.</li>
+            <li>Prefer ranges and scenarios over one precise AI percentage.</li>
+            <li>Separate “all data centres” from “AI-related / accelerated servers”.</li>
+            <li>Location and grid mix change the environmental meaning of every TWh (see Europe page).</li>
           </ul>
+        </div>
+
+        <h2>Regional scale</h2>
+        <p>In recent IEA regional breakdowns, the United States accounts for the largest share of data-centre electricity, followed by China and Europe. Absolute TWh—not facility counts alone—drive system impact.</p>
+        <div class="chart-wrap">
+          <h3 class="chart-title">Illustrative regional electricity (TWh, recent year)</h3>
+          <div id="chart-regions"></div>
+          <p class="chart-note">Rounded from IEA regional annex-style figures (e.g. US ~183, China ~102, Europe ~68, Asia Pacific including China higher as a bloc).</p>
         </div>
       </div>
     </section>
@@ -150,11 +106,43 @@
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova</p>
+      <p>© 2026 Group Insights · Pantea, Bahar, Yasin, Ferdaws · Università di Genova</p>
     </div>
   </footer>
   <script>
-  (function(){var root=document.documentElement,key='insights-theme',s=localStorage.getItem(key);if(s==='light'||s==='dark')root.setAttribute('data-theme',s);function sync(){var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});}sync();function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem(key,n);sync();}document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggle);});})();
+  (function(){
+    var root=document.documentElement,key='insights-theme',s=localStorage.getItem(key);
+    if(s==='light'||s==='dark')root.setAttribute('data-theme',s);
+    function sync(){var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});}
+    sync();
+    function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem(key,n);sync();redraw();}
+    document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggle);});
+
+    function redraw(){
+      if(!window.InsightsCharts)return;
+      InsightsCharts.drawGrowthLine('chart-growth',[
+        {year:2020,twh:269,projected:false},
+        {year:2023,twh:361,projected:false},
+        {year:2024,twh:416,projected:false},
+        {year:2025,twh:485,projected:false},
+        {year:2030,twh:950,projected:true}
+      ]);
+      InsightsCharts.drawScenarioBars('chart-scenarios',[
+        {name:'Headwinds',twh:669,accent:false},
+        {name:'High Eff.',twh:792,accent:false},
+        {name:'Base',twh:946,accent:false},
+        {name:'Lift-Off',twh:1264,accent:true}
+      ]);
+      InsightsCharts.drawHBars('chart-regions',[
+        {region:'United States',twh:183},
+        {region:'China',twh:102},
+        {region:'Europe',twh:68},
+        {region:'Asia Pacific*',twh:150}
+      ],'twh','region');
+    }
+    redraw();
+    window.addEventListener('resize',redraw);
+  })();
   </script>
 </body>
 </html>
