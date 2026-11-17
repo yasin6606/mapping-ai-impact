@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI · Environment · Energy | Group Insights · UniGe</title>
+  <title>The Impact of AI on the Environment and Energy Consumption | Insights</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,7 @@
         </svg>
         <div class="brand-text">
           <span class="brand-title">AI · Environment</span>
-          <span class="brand-sub">Università di Genova</span>
+          <span class="brand-sub">Group Insights · UniGe</span>
         </div>
       </div>
       <div class="header-actions">
@@ -31,133 +31,96 @@
           <ul>
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="pages/energy.html">Energy</a></li>
+            <li><a href="pages/europe.html">Europe</a></li>
             <li><a href="pages/water.html">Water</a></li>
             <li><a href="pages/carbon.html">Carbon</a></li>
           </ul>
         </nav>
-        <button class="theme-toggle" type="button" aria-label="Toggle theme" title="Toggle light/dark">◐</button>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
       </div>
     </div>
   </header>
-
   <button class="theme-toggle-fixed" type="button" aria-label="Toggle theme">◐</button>
 
   <main>
     <section class="hero">
       <div class="container">
         <h1>The Impact of AI on the Environment and Energy Consumption</h1>
-        <p class="subtitle">Group Insights · Yasin · Bahar · Pantea · Ferdaws</p>
-        <p class="hero-lead">Data centres used 416 TWh in 2024. Under IEA Base assumptions that rises to about 946 TWh by 2030. This site maps electricity demand and environmental pressure with open data.</p>
+        <p class="subtitle">Group Insights · Pantea Rezaei · Bahar BaradaranSalmas · Yasin Gourkani · Ferdaws Ghanny</p>
+        <p class="hero-lead">Data Visualization · University of Genoa. A guided look at data-centre electricity, AI’s uncertain share, and why location changes the carbon story.</p>
       </div>
     </section>
 
-    <section id="project" class="section">
+    <section class="section">
       <div class="container">
-        <h2>1. Project description</h2>
-        <p>Group Insights documents two linked effects of AI:</p>
-        <ul class="data-list">
-          <li><strong>Energy consumption</strong> — how much electricity data centres draw (total, IT, by region and by scenario).</li>
-          <li><strong>Environment</strong> — water for cooling, grid carbon intensity, and scenario risk if demand follows Lift-Off instead of High Efficiency.</li>
-        </ul>
-        <p>Primary numbers come from the <strong>IEA Energy and AI data annex</strong> (installed capacity, PUE, load factor, electricity by segment and region, four scenarios to 2030–2035). Grid intensity context uses Ember yearly generation statistics.</p>
+        <h2>Main question</h2>
+        <p><strong>How is the growth of AI contributing to data centre electricity demand, and how does the location of this infrastructure shape its potential environmental impact?</strong></p>
+        <p>We explore changes in electricity demand, where data centres are concentrated, and the electricity sources available in those places. We distinguish <em>total</em> data-centre consumption from estimates that try to isolate AI.</p>
 
-        <h3>Headline numbers (IEA annex)</h3>
+        <h3>Intended audience</h3>
+        <p>Primary readers are non-specialist university students—especially in computing and data science—who use AI tools and want to understand environmental implications. We assume familiarity with basic charts, not with power systems or carbon accounting. Educators and science communicators are a secondary audience.</p>
+        <p>The site uses plain language, consistent units, short explanations next to charts, and visible sources. The goal is informed understanding—not a precise footprint for one prompt or advice on where to build a data centre.</p>
+
         <div class="stat-row">
-          <div class="stat-pill"><span class="num">416 TWh</span><span class="label">World DCs 2024</span></div>
-          <div class="stat-pill"><span class="num">97 GW</span><span class="label">Capacity 2024</span></div>
-          <div class="stat-pill"><span class="num">946 TWh</span><span class="label">Base 2030</span></div>
-          <div class="stat-pill"><span class="num">1.41</span><span class="label">Global PUE 2024</span></div>
+          <div class="stat-pill"><span class="num">~416 TWh</span><span class="label">World DCs ~2024</span></div>
+          <div class="stat-pill"><span class="num">~950 TWh</span><span class="label">Base case ~2030</span></div>
+          <div class="stat-pill"><span class="num">Location</span><span class="label">Changes gCO₂e/kWh</span></div>
+          <div class="stat-pill"><span class="num">Uncertain</span><span class="label">Exact AI %</span></div>
         </div>
-        <div class="stat-row">
-          <div class="stat-pill"><span class="num">1264 TWh</span><span class="label">Lift-Off 2030</span></div>
-          <div class="stat-pill"><span class="num">792 TWh</span><span class="label">High Efficiency 2030</span></div>
-          <div class="stat-pill"><span class="num">669 TWh</span><span class="label">Headwinds 2030</span></div>
-          <div class="stat-pill"><span class="num">1.14</span><span class="label">Hyperscale PUE</span></div>
-        </div>
+      </div>
+    </section>
 
-        <div class="highlight-box">
-          <h3>What the scenarios mean</h3>
-          <ul>
-            <li><strong>Base</strong> — continuation of recent growth; about 946 TWh in 2030.</li>
-            <li><strong>Lift-Off</strong> — faster AI and cloud expansion; about 1 264 TWh.</li>
-            <li><strong>High Efficiency</strong> — stronger efficiency and workload discipline; about 792 TWh.</li>
-            <li><strong>Headwinds</strong> — constrained build-out; about 669 TWh.</li>
-          </ul>
-        </div>
+    <section class="section alt">
+      <div class="container">
+        <h2>Supporting questions</h2>
 
-        <h3>Data sources</h3>
+        <article class="glass-card">
+          <h3>1–2 · Energy demand & AI share</h3>
+          <p>How has global data-centre electricity changed, and how might it evolve by 2030? What do estimates say about AI’s share—and how uncertain are they?</p>
+          <p><a href="pages/energy.html">Open Energy page →</a></p>
+        </article>
+
+        <article class="glass-card">
+          <h3>3–5 · Europe, mix & carbon</h3>
+          <p>Where are facilities concentrated in Europe? How does the electricity mix differ? For the same TWh, how would estimated emissions compare across countries?</p>
+          <p><a href="pages/europe.html">Open Europe page →</a></p>
+        </article>
+
+        <article class="glass-card">
+          <h3>Water & cooling</h3>
+          <p>How PUE and water-use effectiveness turn electricity into a water footprint—and why indirect grid water matters.</p>
+          <p><a href="pages/water.html">Open Water page →</a></p>
+        </article>
+
+        <article class="glass-card">
+          <h3>Carbon context & scale</h3>
+          <p>Scenario risk (High Efficiency vs Lift-Off) and why volume × intensity is the basic environmental equation.</p>
+          <p><a href="pages/carbon.html">Open Carbon page →</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>Data & method</h2>
         <ul class="data-list">
-          <li>IEA data annex (Energy and AI) — capacity, PUE, load factor, TWh by world / region / segment</li>
-          <li>Ember yearly generation — electricity mix and emissions intensity by country</li>
-          <li><a href="https://www.iea.org/reports/key-questions-on-energy-and-ai" target="_blank" rel="noopener">IEA Key Questions on Energy and AI</a></li>
-          <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank" rel="noopener">Stanford AI Index 2026</a></li>
+          <li><strong>IEA Energy and AI data annex</strong> — capacity, PUE, load factor, TWh by region and scenario</li>
+          <li><strong>Ember / Our World in Data electricity mix</strong> — generation shares and intensity context</li>
+          <li>Public data-centre directories — facility counts (distribution only, not demand)</li>
+          <li>Charts: D3.js SVG + CSS classes; light/dark theme; sources and uncertainty noted on each page</li>
         </ul>
-      </div>
-    </section>
-
-    <section id="pages" class="section alt">
-      <div class="container">
-        <h2>2. Pages</h2>
-        <article class="glass-card">
-          <h3><a href="pages/energy.html">Energy consumption</a></h3>
-          <p>2020–2024 history, four 2030 scenarios, capacity and PUE, regional split (US, China, Europe, Asia Pacific). Hyperscale vs colocation vs enterprise.</p>
-        </article>
-        <article class="glass-card">
-          <h3><a href="pages/water.html">Water & cooling</a></h3>
-          <p>How PUE and WUE turn electricity into water demand; on-site vs power-plant water; link to volume scenarios.</p>
-        </article>
-        <article class="glass-card">
-          <h3><a href="pages/carbon.html">Environment & carbon</a></h3>
-          <p>Volume risk across scenarios (about 500 TWh gap High Eff. vs Lift-Off) and the role of grid carbon intensity.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="method" class="section">
-      <div class="container">
-        <h2>3. Method</h2>
-        <ol>
-          <li>Open data only (IEA annex + Ember).</li>
-          <li>SVG charts styled only with CSS selectors — no inline styles.</li>
-          <li>Semantic HTML5; Roboto Slab (titles) + Fira Sans (body).</li>
-          <li>Light / dark theme (header button + floating button; preference saved).</li>
-        </ol>
+        <p>Website: <a href="https://yasin6606.github.io/mapping-ai-impact/">yasin6606.github.io/mapping-ai-impact</a> · Repository: <a href="https://github.com/yasin6606/mapping-ai-impact">github.com/yasin6606/mapping-ai-impact</a></p>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 Group Insights · Yasin, Bahar, Pantea & Ferdaws · Università di Genova</p>
-      <p>Repository: <a href="https://github.com/yasin6606/mapping-ai-impact">github.com/yasin6606/mapping-ai-impact</a></p>
+      <p>© 2026 Group Insights · Pantea Rezaei, Bahar BaradaranSalmas, Yasin Gourkani, Ferdaws Ghanny · Università di Genova</p>
     </div>
   </footer>
-
   <script>
-  (function () {
-    var root = document.documentElement;
-    var key = 'insights-theme';
-    var saved = localStorage.getItem(key);
-    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
-    function sync() {
-      var t = root.getAttribute('data-theme') || 'dark';
-      var label = t === 'dark' ? '☀' : '☾';
-      document.querySelectorAll('.theme-toggle, .theme-toggle-fixed').forEach(function (btn) {
-        btn.textContent = label;
-        btn.setAttribute('aria-label', t === 'dark' ? 'Switch to light' : 'Switch to dark');
-      });
-    }
-    sync();
-    function toggle() {
-      var next = (root.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      localStorage.setItem(key, next);
-      sync();
-    }
-    document.querySelectorAll('.theme-toggle, .theme-toggle-fixed').forEach(function (btn) {
-      btn.addEventListener('click', toggle);
-    });
-  })();
+  (function(){var root=document.documentElement,key='insights-theme',s=localStorage.getItem(key);if(s==='light'||s==='dark')root.setAttribute('data-theme',s);function sync(){var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});}sync();function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem(key,n);sync();}document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggle);});})();
   </script>
 </body>
 </html>
