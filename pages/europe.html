@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Europe · Location & carbon · Group Insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="../js/charts.js"></script>
+</head>
+<body>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="unige-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="mark-outer" cx="30" cy="30" r="28"/>
+          <path class="mark-shield" d="M30 8 L48 16 L48 36 Q48 48 30 54 Q12 48 12 36 L12 16 Z"/>
+          <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
+        </svg>
+        <div class="brand-text">
+          <span class="brand-title">AI · Environment</span>
+          <span class="brand-sub">Università di Genova</span>
+        </div>
+      </div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Main">
+          <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="energy.html">Energy</a></li>
+            <li><a href="europe.html" class="active">Europe</a></li>
+            <li><a href="water.html">Water</a></li>
+            <li><a href="carbon.html">Carbon</a></li>
+          </ul>
+        </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
+      </div>
+    </div>
+  </header>
+  <button class="theme-toggle-fixed" type="button" aria-label="Toggle theme">◐</button>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <h1>Europe: location shapes impact</h1>
+        <p class="subtitle">Supporting questions 3–5 · Distribution · Electricity mix · Carbon comparison</p>
+        <p class="hero-lead">The same megawatt-hour does not have the same carbon cost everywhere. This page compares where data centres cluster in Europe and what the national electricity mix implies for emissions.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2>3. Where are data centres concentrated?</h2>
+        <p>Facility counts describe infrastructure distribution, not electricity use. Public directories (e.g. Data Center Map / Cloudscene-style listings) consistently place the United Kingdom, Germany, France and the Netherlands among the densest European markets. Ireland hosts fewer sites but a high share of hyperscale capacity relative to its size.</p>
+
+        <div class="stat-row">
+          <div class="stat-pill"><span class="num">UK / DE / FR</span><span class="label">Highest facility counts</span></div>
+          <div class="stat-pill"><span class="num">NL · IE</span><span class="label">Dense hubs / hyperscale</span></div>
+          <div class="stat-pill"><span class="num">Nordics</span><span class="label">Cool climate + clean power</span></div>
+        </div>
+
+        <div class="chart-wrap">
+          <h3 class="chart-title">Illustrative facility counts (Europe, recent directories)</h3>
+          <div id="chart-dc-counts"></div>
+          <p class="chart-note">Approximate public directory counts (order of magnitude). Counts ≠ electricity demand. Sources vary by listing methodology.</p>
+        </div>
+
+        <h2>4. Electricity mix in key countries</h2>
+        <p>Using national generation shares (Ember / Our World in Data style data), countries with many data centres differ sharply: France is nuclear-heavy; Norway and Sweden are dominated by hydro and other renewables; Germany and the Netherlands still rely more on fossil generation in residual mix terms; Ireland’s mix has shifted with wind growth but remains exposed to gas.</p>
+
+        <div class="chart-wrap">
+          <h3 class="chart-title">Illustrative low-carbon share of electricity (approx.)</h3>
+          <div id="chart-mix"></div>
+          <p class="chart-note">Schematic comparison for teaching purposes. “Low-carbon” ≈ nuclear + renewables. Real-time residual mixes and GO tracking differ from generation shares.</p>
+        </div>
+
+        <h2>5. Same electricity, different carbon</h2>
+        <p>If a data centre draws 1 TWh in a high-intensity grid versus a low-intensity one, estimated CO₂ can differ by a factor of several times. This is a scenario based on national average intensity—not measured emissions from a specific facility. Operators also buy certificates and PPAs that change the contractual footprint.</p>
+
+        <div class="highlight-box">
+          <h3>Why location matters</h3>
+          <ul>
+            <li>Grid intensity (gCO₂e/kWh) multiplies every TWh of demand.</li>
+            <li>Cool climates can reduce cooling electricity (and water), improving PUE.</li>
+            <li>Policy, interconnection queues and renewable build-out change the outlook year by year.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Group Insights · Pantea, Bahar, Yasin, Ferdaws · Università di Genova</p>
+    </div>
+  </footer>
+  <script>
+  (function(){
+    var root=document.documentElement,key='insights-theme',s=localStorage.getItem(key);
+    if(s==='light'||s==='dark')root.setAttribute('data-theme',s);
+    function sync(){var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});}
+    sync();
+    function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem(key,n);sync();redraw();}
+    document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggle);});
+
+    function redraw(){
+      if(!window.InsightsCharts)return;
+      InsightsCharts.drawHBars('chart-dc-counts',[
+        {country:'United Kingdom',n:520},
+        {country:'Germany',n:500},
+        {country:'France',n:320},
+        {country:'Netherlands',n:290},
+        {country:'Italy',n:160},
+        {country:'Spain',n:140},
+        {country:'Ireland',n:70}
+      ],'n','country');
+      InsightsCharts.drawHBars('chart-mix',[
+        {country:'Norway',pct:98},
+        {country:'Sweden',pct:95},
+        {country:'France',pct:90},
+        {country:'Spain',pct:70},
+        {country:'Germany',pct:55},
+        {country:'Netherlands',pct:50},
+        {country:'Ireland',pct:45}
+      ],'pct','country');
+    }
+    redraw();
+    window.addEventListener('resize',redraw);
+  })();
+  </script>
+</body>
+</html>
