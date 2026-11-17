@@ -1,0 +1,36 @@
+{
+  "retrieved_on": "2026-11-17",
+  "year": 2025,
+  "countries": [
+    "France",
+    "Germany",
+    "Italy",
+    "Netherlands",
+    "Spain",
+    "Sweden"
+  ],
+  "source_url": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.csv",
+  "codebook_url": "https://catalog.ourworldindata.org/energy/owid_energy/owid_energy.codebook.csv",
+  "source_sha256": "9d8efc4a9b1cc2ffdfa7f7f6f1e171b2922e0be2d97c0edf2982e874357ed6de",
+  "codebook_sha256": "b00441944a4f84110709a858ae4ed3d54694df95f98286777dfad1c94c544cf9",
+  "subset_sha256": "002a2f651a8f08962e3bc21f18807790beead0aa331e2a85faa4cfe2b66d6cb1",
+  "original_provider": "Ember – Yearly Electricity Data Europe (2026)",
+  "processed_by": "Our World in Data",
+  "fields": {
+    "intensity": "electricity_carbon_intensity_gco2eq_per_kwh",
+    "fossil": "fossil_fuels_electricity_share_pct",
+    "renewables": "renewables_electricity_share_pct",
+    "nuclear": "nuclear_electricity_share_pct",
+    "wind": "wind_electricity_share_pct",
+    "solar": "solar_electricity_share_pct",
+    "hydro": "hydro_electricity_share_pct",
+    "coal": "coal_electricity_share_pct",
+    "gas": "gas_electricity_share_pct"
+  },
+  "selection": "Purposive contrasting electricity systems; not selected by data-centre counts.",
+  "zero_handling": "Only explicit source zeros; missing values cause build failure.",
+  "composition_check_tolerance_percentage_points": 0.02,
+  "stacked_geometry": "Normalised by fossil+renewables+nuclear sum; source shares remain displayed.",
+  "waffle_rounding": "Largest remainder, stable category order fossil, renewables, nuclear.",
+  "licence": "Attribute Ember and Our World in Data; original provider terms apply. See source links."
+}

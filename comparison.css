@@ -1,0 +1,70 @@
+/* Assignment 1: scoped additions, using the established site theme. */
+.comparison-page { overflow-x: clip; }
+.comparison-page .header-inner { flex-wrap: wrap; }
+.comparison-page .header-actions { flex-wrap: wrap; }
+.comparison-page .main-nav ul { flex-wrap: wrap; }
+.comparison-page .hero { padding-bottom: 1.6rem; }
+.comparison-page .hero h1 { max-width: 900px; font-size: clamp(2.1rem, 5.5vw, 4.3rem); }
+.comparison-page .hero-lead { max-width: 47rem; font-size: 1.15rem; }
+.comparison-skip { position: absolute; left: 1rem; top: -8rem; z-index: 300; background: var(--bg); padding: 1rem; }
+.comparison-skip:focus { top: 1rem; }
+.comparison-scope { border-left: 3px solid var(--mint); padding: .8rem 1.2rem; background: var(--glass); max-width: 49rem; margin-top: 1.7rem; }
+.comparison-scope p { margin: .2rem 0 0; font-size: .95rem; }
+.comparison-jumps { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-top: 1.7rem; font-size: .88rem; }
+.comparison-content { padding-bottom: 2rem; }
+.comparison-card { background: var(--card); border: 1px solid var(--glass-border); border-radius: 18px; padding: clamp(1rem, 3vw, 2rem); margin: 1.5rem 0; scroll-margin-top: 8rem; }
+.comparison-card-head h2 { margin: .3rem 0 .7rem; }
+.comparison-card-head > p:last-child { color: var(--text-soft); margin: 0 0 1rem; }
+.comparison-scroll { overflow-x: auto; margin: .8rem 0; }
+.comparison-scroll > svg { display: block; width: 100%; min-width: 640px; height: auto; font-family: "Fira Sans", sans-serif; }
+.comparison-control { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; font-weight: 500; font-size: .9rem; margin: 1rem 0; }
+.comparison-control select { font: inherit; color: var(--heading); background: var(--bg-soft); border: 1px solid var(--text-soft); padding: .5rem .8rem; border-radius: 6px; min-height: 42px; }
+.comparison-page :focus-visible { outline: 3px solid var(--mint); outline-offset: 4px; }
+.comparison-takeaway { border-left: 3px solid var(--mint); padding: .7rem 1rem; background: var(--glass); font-size: 1.04rem; margin: 1rem 0; }
+.comparison-reading { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
+.comparison-reading p { color: var(--text-soft); font-size: .92rem; margin: .3rem 0; }
+.comparison-reading strong { color: var(--text); }
+.comparison-legend { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; padding: 0; font-size: .88rem; margin: 1rem 0 .5rem; }
+.comparison-legend li { display: flex; align-items: center; gap: .4rem; }
+.swatch { display: inline-block; width: 16px; height: 16px; border-radius: 3px; border: 1px solid var(--text-soft); }
+.cmp-grid { stroke: var(--grid); stroke-width: 1; }
+.cmp-label { fill: var(--heading); font-size: 15px; }
+.cmp-axis { fill: var(--text); font-size: 14px; }
+.cmp-bar { fill: var(--mint); }
+.cmp-wind, .cmp-renewables { fill: #2fbba7; background: #2fbba7; }
+.cmp-solar { fill: #efb24e; background: #efb24e; }
+.cmp-fossil { fill: #e1906c; background: #e1906c; }
+.cmp-nuclear { fill: #a5a2ef; background: #a5a2ef; }
+.segment-label { fill: #0a1628; font-size: 14px; font-weight: 600; }
+.heat-0 { fill: #e9eff0; background: #e9eff0; }
+.heat-1 { fill: #c7e4df; background: #c7e4df; }
+.heat-2 { fill: #83c8bb; background: #83c8bb; }
+.heat-3 { fill: #399b8a; background: #399b8a; }
+.heat-4 { fill: #15685b; background: #15685b; }
+.heat-5 { fill: #08453b; background: #08453b; }
+.heat-text { fill: #0a1628; font-size: 16px; font-weight: 500; }
+.heat-text-4, .heat-text-5 { fill: #fff; }
+.waffle-layout { display: grid; grid-template-columns: minmax(250px, 350px) 1fr; align-items: center; gap: 3rem; max-width: 800px; margin: 1.2rem auto; }
+#waffle-grid svg { width: 100%; height: auto; display: block; }
+#waffle-summary h3 { margin-top: 0; }
+#waffle-summary p { margin: .6rem 0; }
+#waffle-summary strong { font-size: 1.4rem; }
+.comparison-table { overflow-x: auto; margin-top: 1rem; }
+.comparison-table table { border-collapse: collapse; min-width: 900px; width: 100%; font-size: .82rem; }
+.comparison-table caption { text-align: left; color: var(--text-soft); margin-bottom: .8rem; }
+.comparison-table th, .comparison-table td { padding: .6rem; border-bottom: 1px solid var(--glass-border); text-align: right; }
+.comparison-table th:first-child { text-align: left; }
+.comparison-page summary { cursor: pointer; color: var(--mint); font-weight: 500; padding: .7rem 0; }
+@media (max-width: 720px) {
+  .comparison-reading { grid-template-columns: 1fr; gap: .7rem; }
+  .waffle-layout { grid-template-columns: 1fr; gap: 1rem; max-width: 330px; }
+  .comparison-page .header-actions { margin-left: 0; width: 100%; }
+  .comparison-page .main-nav { flex: 1; }
+  .comparison-card { scroll-margin-top: 12rem; }
+}
+@media print {
+  .comparison-page .site-header, .comparison-control, .comparison-jumps { display: none; }
+  .comparison-page { color: #17212b; background: white; }
+  .comparison-card { break-inside: avoid; box-shadow: none; }
+  .comparison-scroll > svg { min-width: 0; }
+}
