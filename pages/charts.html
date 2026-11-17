@@ -13,10 +13,9 @@
     .chart-block { margin-bottom: 2.5rem; }
     .chart-block h3 { margin-bottom: 0.35rem; }
     .chart-desc { color: var(--text-soft); font-size: 0.95rem; margin: 0 0 0.8rem; }
-    .d3-host { width: 100%; min-height: 120px; }
+    .d3-host { width: 100%; min-height: 140px; overflow-x: auto; }
     .d3-host svg { max-width: 100%; height: auto; display: block; }
-    .legend-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-soft); }
-    .legend-row span::before { content: ''; display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 4px; vertical-align: middle; }
+    .chart-error { color: #f97316; font-size: 0.9rem; padding: 0.5rem 0; }
   </style>
 </head>
 <body>
@@ -55,84 +54,74 @@
     <section class="hero">
       <div class="container">
         <h1>Electricity mix visualizations</h1>
-        <p class="subtitle">Our World in Data / Ember electricity mix · European focus · 2024 (and 2020 for change)</p>
-        <p class="hero-lead">Nine chart types built from the same generation data (TWh by source). Used to compare grids that supply data centres: fossil vs low-carbon shares shape the carbon cost of each TWh.</p>
+        <p class="subtitle">Data from electricity-mix.csv (Ember / Our World in Data) · Europe · 2024</p>
+        <p class="hero-lead">Nine chart types from the same generation file (TWh by source). Grid mix multiplies data-centre demand into emissions.</p>
       </div>
     </section>
 
     <section class="section">
       <div class="container">
 
-        <!-- 1 BAR -->
         <div class="chart-block chart-wrap">
           <h3>1. Bar chart — Wind generation 2024 (TWh)</h3>
-          <p class="chart-desc">Simple ranking of wind output in selected European countries. Germany leads this sample.</p>
+          <p class="chart-desc">Ranking of wind output. Germany leads this European sample (141.6 TWh).</p>
           <div id="c1" class="d3-host"></div>
         </div>
 
-        <!-- 2 GROUPED BAR -->
         <div class="chart-block chart-wrap">
           <h3>2. Grouped bar chart — Wind vs solar 2024 (TWh)</h3>
-          <p class="chart-desc">Side-by-side comparison of two low-carbon sources that often co-locate with new digital load.</p>
+          <p class="chart-desc">Side-by-side comparison of two low-carbon sources.</p>
           <div id="c2" class="d3-host"></div>
         </div>
 
-        <!-- 3 HEATMAP -->
         <div class="chart-block chart-wrap">
-          <h3>3. Heat map — Source intensity by country (normalized row shares)</h3>
-          <p class="chart-desc">Each row is a country; cells show that source’s share of the country’s total generation (darker = higher share). Nuclear-heavy France and hydro-heavy Norway stand out.</p>
+          <h3>3. Heat map — Source share by country (row-normalized)</h3>
+          <p class="chart-desc">Each cell = that source’s share of the country’s total generation. Darker = higher share.</p>
           <div id="c3" class="d3-host"></div>
         </div>
 
-        <!-- 4 100% STACK -->
         <div class="chart-block chart-wrap">
           <h3>4. 100% stacked bar — Generation mix shares 2024</h3>
           <p class="chart-desc">Every bar totals 100%. Compare structure of the mix, not absolute TWh.</p>
           <div id="c4" class="d3-host"></div>
         </div>
 
-        <!-- 5 WAFFLE -->
         <div class="chart-block chart-wrap">
           <h3>5. Waffle chart — Germany 2024 mix (1 cell ≈ 1%)</h3>
-          <p class="chart-desc">100 cells. Quick reading of fossil vs wind/solar/bio vs residual.</p>
+          <p class="chart-desc">100 cells from CSV totals for Germany.</p>
           <div id="c5" class="d3-host"></div>
         </div>
 
-        <!-- 6 CIRCLE PACK -->
         <div class="chart-block chart-wrap">
-          <h3>6. Circle packing — Absolute generation by source (selected countries, 2024)</h3>
-          <p class="chart-desc">Area ∝ TWh. Nested by country then source (top sources only for readability).</p>
+          <h3>6. Circle packing — Absolute generation by source (2024)</h3>
+          <p class="chart-desc">Area proportional to TWh. Nested by country, then source.</p>
           <div id="c6" class="d3-host"></div>
         </div>
 
-        <!-- 7 DUMBBELL -->
         <div class="chart-block chart-wrap">
           <h3>7. Dumbbell plot — Coal TWh 2020 → 2024</h3>
-          <p class="chart-desc">Change in coal generation. Germany and Poland remain high; UK and others fall sharply.</p>
+          <p class="chart-desc">Exact CSV values. Coral = 2020, teal = 2024.</p>
           <div id="c7" class="d3-host"></div>
         </div>
 
-        <!-- 8 STACKED BAR -->
         <div class="chart-block chart-wrap">
           <h3>8. Stacked bar — Absolute mix 2024 (TWh)</h3>
-          <p class="chart-desc">Same countries; stack height = total generation. France’s nuclear block dominates the sample.</p>
+          <p class="chart-desc">Stack height = total generation. France’s nuclear block dominates.</p>
           <div id="c8" class="d3-host"></div>
         </div>
 
-        <!-- 9 PIE -->
         <div class="chart-block chart-wrap">
           <h3>9. Pie chart — United Kingdom 2024 generation mix</h3>
-          <p class="chart-desc">One country snapshot. Gas and wind are the two largest slices in this year.</p>
+          <p class="chart-desc">From CSV: gas 86.3 and wind 83.3 TWh are the two largest slices.</p>
           <div id="c9" class="d3-host"></div>
         </div>
 
         <div class="highlight-box">
-          <h3>Source & notes</h3>
+          <h3>Source</h3>
           <ul>
-            <li>Data: electricity-mix series (Ember / Our World in Data style), generation in TWh by source.</li>
-            <li>Year shown is 2024 unless noted (dumbbell uses 2020 and 2024).</li>
-            <li>Facility counts ≠ TWh. These charts describe the <em>grid mix</em> that multiplies data-centre demand into emissions.</li>
-            <li>Charts: D3.js SVG. Theme toggle recolors axes/labels.</li>
+            <li>File: <code>electricity-mix.csv</code> (Entity, Year, Solar, Wind, Hydropower, Nuclear, Gas, Oil, Coal, Bioenergy…)</li>
+            <li>Countries: DE, FR, UK, ES, IT, NL, PL, SE, NO, IE · years 2020 and 2024</li>
+            <li>Charts: D3.js v7 · theme-aware colours</li>
           </ul>
         </div>
       </div>
@@ -147,7 +136,6 @@
 
   <script>
   (function () {
-    /* ---- theme ---- */
     var root = document.documentElement, key = 'insights-theme';
     var saved = localStorage.getItem(key);
     if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
@@ -183,7 +171,7 @@
       };
     }
 
-    /* ---- data from electricity-mix.csv (2024 TWh) ---- */
+    /* Exact values from electricity-mix.csv */
     var mix2024 = [
       { country: 'Germany', Wind: 141.60, Solar: 74.13, Hydropower: 23.83, Nuclear: 0, Gas: 78.41, Coal: 106.33, Bioenergy: 51.08, Oil: 20.39 },
       { country: 'France', Wind: 45.43, Solar: 24.87, Hydropower: 71.12, Nuclear: 380.45, Gas: 18.10, Coal: 1.02, Bioenergy: 10.68, Oil: 9.54 },
@@ -199,19 +187,19 @@
 
     var coalChange = [
       { country: 'Germany', y2020: 134.60, y2024: 106.33 },
-      { country: 'Poland', y2020: 99.0, y2024: 93.50 },
-      { country: 'Netherlands', y2020: 12.0, y2024: 7.47 },
-      { country: 'Spain', y2020: 10.0, y2024: 2.58 },
-      { country: 'Italy', y2020: 13.0, y2024: 3.95 },
+      { country: 'Poland', y2020: 107.40, y2024: 93.50 },
+      { country: 'Italy', y2020: 13.38, y2024: 3.95 },
+      { country: 'Netherlands', y2020: 7.62, y2024: 7.47 },
       { country: 'United Kingdom', y2020: 5.70, y2024: 1.90 },
+      { country: 'Spain', y2020: 5.52, y2024: 2.58 },
       { country: 'France', y2020: 3.09, y2024: 1.02 },
-      { country: 'Ireland', y2020: 2.0, y2024: 0.63 }
+      { country: 'Ireland', y2020: 0.67, y2024: 0.63 }
     ];
 
     var sources = ['Nuclear', 'Hydropower', 'Wind', 'Solar', 'Bioenergy', 'Gas', 'Coal', 'Oil'];
 
     function totalOf(d) {
-      return sources.reduce(function (s, k) { return s + (d[k] || 0); }, 0);
+      return sources.reduce(function (s, k) { return s + (Number(d[k]) || 0); }, 0);
     }
 
     function clear(id) {
@@ -220,62 +208,71 @@
       return el;
     }
 
-    /* ========== 1 BAR ========== */
+    function safe(fn, id) {
+      try { fn(); }
+      catch (e) {
+        console.error(id, e);
+        var el = document.getElementById(id);
+        if (el) el.innerHTML = '<p class="chart-error">Chart error: ' + (e && e.message ? e.message : e) + '</p>';
+      }
+    }
+
+    /* 1 BAR */
     function chart1() {
-      var el = clear('c1'); if (!el) return;
+      var el = clear('c1'); if (!el || !window.d3) return;
       var c = colors();
       var data = mix2024.map(function (d) { return { country: d.country, v: d.Wind }; })
         .sort(function (a, b) { return b.v - a.v; });
-      var m = { t: 8, r: 40, b: 28, l: 100 };
-      var w = Math.min(700, el.clientWidth || 700) - m.l - m.r;
-      var h = data.length * 28;
+      var m = { t: 8, r: 48, b: 20, l: 110 };
+      var w = Math.max(280, Math.min(720, (el.clientWidth || 720) - m.l - m.r));
+      var h = data.length * 30;
       var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + (w + m.l + m.r) + ' ' + (h + m.t + m.b));
       var g = svg.append('g').attr('transform', 'translate(' + m.l + ',' + m.t + ')');
       var y = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, h]).padding(0.2);
-      var x = d3.scaleLinear().domain([0, d3.max(data, function (d) { return d.v; }) * 1.08]).range([0, w]);
+      var x = d3.scaleLinear().domain([0, d3.max(data, function (d) { return d.v; }) * 1.1]).range([0, w]);
       g.selectAll('rect').data(data).enter().append('rect')
         .attr('y', function (d) { return y(d.country); }).attr('height', y.bandwidth())
-        .attr('x', 0).attr('width', function (d) { return x(d.v); })
-        .attr('fill', c.teal);
-      g.selectAll('text.val').data(data).enter().append('text')
-        .attr('x', function (d) { return x(d.v) + 6; }).attr('y', function (d) { return y(d.country) + y.bandwidth() / 2; })
-        .attr('dy', '0.35em').attr('fill', c.heading).attr('font-size', 11)
+        .attr('x', 0).attr('width', function (d) { return x(d.v); }).attr('fill', c.teal).attr('rx', 3);
+      g.selectAll('text.v').data(data).enter().append('text')
+        .attr('x', function (d) { return x(d.v) + 6; })
+        .attr('y', function (d) { return y(d.country) + y.bandwidth() / 2; })
+        .attr('dy', '0.35em').attr('fill', c.heading).attr('font-size', 12)
         .text(function (d) { return d.v.toFixed(1); });
       g.append('g').call(d3.axisLeft(y).tickSize(0)).selectAll('text').attr('fill', c.heading).attr('font-size', 12);
-      g.select('.domain').attr('stroke', c.grid);
+      g.select('.domain').remove();
     }
 
-    /* ========== 2 GROUPED BAR ========== */
+    /* 2 GROUPED */
     function chart2() {
-      var el = clear('c2'); if (!el) return;
+      var el = clear('c2'); if (!el || !window.d3) return;
       var c = colors();
       var keys = ['Wind', 'Solar'];
       var data = mix2024.slice().sort(function (a, b) { return (b.Wind + b.Solar) - (a.Wind + a.Solar); });
-      var m = { t: 16, r: 16, b: 36, l: 40 };
-      var w = Math.min(700, el.clientWidth || 700) - m.l - m.r;
+      var m = { t: 12, r: 12, b: 48, l: 40 };
+      var w = Math.max(280, Math.min(720, (el.clientWidth || 720) - m.l - m.r));
       var h = 260;
       var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + (w + m.l + m.r) + ' ' + (h + m.t + m.b));
       var g = svg.append('g').attr('transform', 'translate(' + m.l + ',' + m.t + ')');
       var x0 = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, w]).padding(0.2);
-      var x1 = d3.scaleBand().domain(keys).range([0, x0.bandwidth()]).padding(0.08);
-      var y = d3.scaleLinear().domain([0, d3.max(data, function (d) { return Math.max(d.Wind, d.Solar); }) * 1.1]).nice().range([h, 0]);
+      var x1 = d3.scaleBand().domain(keys).range([0, x0.bandwidth()]).padding(0.1);
+      var y = d3.scaleLinear().domain([0, d3.max(data, function (d) { return Math.max(d.Wind, d.Solar); }) * 1.12]).nice().range([h, 0]);
       g.append('g').attr('transform', 'translate(0,' + h + ')').call(d3.axisBottom(x0))
-        .selectAll('text').attr('fill', c.text).attr('font-size', 10).attr('transform', 'rotate(-25)').attr('text-anchor', 'end');
+        .selectAll('text').attr('fill', c.text).attr('font-size', 10).attr('transform', 'rotate(-28)').style('text-anchor', 'end');
       g.append('g').call(d3.axisLeft(y).ticks(5)).selectAll('text').attr('fill', c.text).attr('font-size', 11);
       var cols = { Wind: c.teal, Solar: c.coral };
       keys.forEach(function (k) {
-        g.selectAll('.b-' + k).data(data).enter().append('rect')
+        g.selectAll('rect.' + k).data(data).enter().append('rect')
           .attr('x', function (d) { return x0(d.country) + x1(k); })
           .attr('width', x1.bandwidth())
           .attr('y', function (d) { return y(d[k]); })
           .attr('height', function (d) { return h - y(d[k]); })
-          .attr('fill', cols[k]);
+          .attr('fill', cols[k]).attr('rx', 2);
       });
     }
 
-    /* ========== 3 HEATMAP ========== */
+    /* 3 HEATMAP — fixed scale (no interpolateTeal) */
     function chart3() {
-      var el = clear('c3'); if (!el) return;
+      var el = clear('c3'); if (!el || !window.d3) return;
       var c = colors();
       var src = ['Nuclear', 'Hydropower', 'Wind', 'Solar', 'Gas', 'Coal'];
       var data = mix2024.map(function (d) {
@@ -284,41 +281,42 @@
         src.forEach(function (k) { row[k] = (d[k] || 0) / t; });
         return row;
       });
-      var m = { t: 24, r: 12, b: 12, l: 100 };
-      var cellW = 56, cellH = 26;
+      var m = { t: 28, r: 8, b: 8, l: 110 };
+      var cellW = 58, cellH = 28;
       var w = src.length * cellW;
       var h = data.length * cellH;
       var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + (w + m.l + m.r) + ' ' + (h + m.t + m.b));
       var g = svg.append('g').attr('transform', 'translate(' + m.l + ',' + m.t + ')');
-      var x = d3.scaleBand().domain(src).range([0, w]).padding(0.05);
-      var y = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, h]).padding(0.05);
-      var maxV = d3.max(data, function (d) { return d3.max(src, function (k) { return d[k]; }); });
-      var col = d3.scaleSequential(d3.interpolateTeal).domain([0, maxV]);
+      var x = d3.scaleBand().domain(src).range([0, w]).padding(0.06);
+      var y = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, h]).padding(0.06);
+      var maxV = d3.max(data, function (d) { return d3.max(src, function (k) { return d[k]; }); }) || 1;
+      var col = d3.scaleSequential(d3.interpolateTurquoise).domain([0, maxV]);
       data.forEach(function (row) {
         src.forEach(function (k) {
           g.append('rect')
             .attr('x', x(k)).attr('y', y(row.country))
             .attr('width', x.bandwidth()).attr('height', y.bandwidth())
-            .attr('fill', col(row[k]));
-          if (row[k] > 0.08) {
+            .attr('fill', col(row[k])).attr('rx', 2);
+          if (row[k] >= 0.07) {
             g.append('text')
-              .attr('x', x(k) + x.bandwidth() / 2).attr('y', y(row.country) + y.bandwidth() / 2)
+              .attr('x', x(k) + x.bandwidth() / 2)
+              .attr('y', y(row.country) + y.bandwidth() / 2)
               .attr('dy', '0.35em').attr('text-anchor', 'middle')
-              .attr('fill', '#0a1628').attr('font-size', 9)
+              .attr('fill', '#0a1628').attr('font-size', 10).attr('font-weight', 600)
               .text(Math.round(row[k] * 100) + '%');
           }
         });
       });
-      g.append('g').call(d3.axisTop(x).tickSize(0)).selectAll('text').attr('fill', c.text).attr('font-size', 10);
-      g.append('g').call(d3.axisLeft(y).tickSize(0)).selectAll('text').attr('fill', c.heading).attr('font-size', 11);
+      g.append('g').call(d3.axisTop(x).tickSize(0)).selectAll('text').attr('fill', c.text).attr('font-size', 11);
+      g.append('g').call(d3.axisLeft(y).tickSize(0)).selectAll('text').attr('fill', c.heading).attr('font-size', 12);
       g.selectAll('.domain').remove();
     }
 
-    /* ========== 4 100% STACK ========== */
+    /* 4 100% STACK */
     function chart4() {
-      var el = clear('c4'); if (!el) return;
+      var el = clear('c4'); if (!el || !window.d3) return;
       var c = colors();
-      var src = ['Nuclear', 'Hydropower', 'Wind', 'Solar', 'Bioenergy', 'Gas', 'Coal', 'Oil'];
+      var src = sources.slice();
       var data = mix2024.map(function (d) {
         var t = totalOf(d) || 1;
         var row = { country: d.country };
@@ -326,15 +324,15 @@
         return row;
       });
       var stacked = d3.stack().keys(src)(data);
-      var m = { t: 8, r: 12, b: 36, l: 40 };
-      var w = Math.min(700, el.clientWidth || 700) - m.l - m.r;
+      var m = { t: 8, r: 8, b: 48, l: 40 };
+      var w = Math.max(280, Math.min(720, (el.clientWidth || 720) - m.l - m.r));
       var h = 280;
       var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + (w + m.l + m.r) + ' ' + (h + m.t + m.b));
       var g = svg.append('g').attr('transform', 'translate(' + m.l + ',' + m.t + ')');
-      var x = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, w]).padding(0.2);
+      var x = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, w]).padding(0.18);
       var y = d3.scaleLinear().domain([0, 1]).range([h, 0]);
       g.append('g').attr('transform', 'translate(0,' + h + ')').call(d3.axisBottom(x))
-        .selectAll('text').attr('fill', c.text).attr('font-size', 10).attr('transform', 'rotate(-25)').attr('text-anchor', 'end');
+        .selectAll('text').attr('fill', c.text).attr('font-size', 10).attr('transform', 'rotate(-28)').style('text-anchor', 'end');
       g.append('g').call(d3.axisLeft(y).ticks(5).tickFormat(d3.format('.0%'))).selectAll('text').attr('fill', c.text).attr('font-size', 11);
       g.selectAll('g.layer').data(stacked).enter().append('g')
         .attr('fill', function (d) { return c.sources[d.key] || '#888'; })
@@ -342,127 +340,132 @@
         .attr('x', function (d) { return x(d.data.country); })
         .attr('width', x.bandwidth())
         .attr('y', function (d) { return y(d[1]); })
-        .attr('height', function (d) { return y(d[0]) - y(d[1]); });
+        .attr('height', function (d) { return Math.max(0, y(d[0]) - y(d[1])); });
     }
 
-    /* ========== 5 WAFFLE ========== */
+    /* 5 WAFFLE */
     function chart5() {
-      var el = clear('c5'); if (!el) return;
+      var el = clear('c5'); if (!el || !window.d3) return;
       var c = colors();
       var de = mix2024.find(function (d) { return d.country === 'Germany'; });
       var t = totalOf(de);
-      var groups = [
+      var order = [
         { name: 'Wind', pct: Math.round(de.Wind / t * 100), color: c.sources.Wind },
         { name: 'Coal', pct: Math.round(de.Coal / t * 100), color: c.sources.Coal },
         { name: 'Gas', pct: Math.round(de.Gas / t * 100), color: c.sources.Gas },
         { name: 'Solar', pct: Math.round(de.Solar / t * 100), color: c.sources.Solar },
         { name: 'Bioenergy', pct: Math.round(de.Bioenergy / t * 100), color: c.sources.Bioenergy },
-        { name: 'Other', pct: 0, color: c.sources.Other }
+        { name: 'Oil', pct: Math.round(de.Oil / t * 100), color: c.sources.Oil },
+        { name: 'Hydro', pct: Math.round(de.Hydropower / t * 100), color: c.sources.Hydropower }
       ];
-      var sum = groups.reduce(function (s, g) { return s + g.pct; }, 0);
-      groups[groups.length - 1].pct = Math.max(0, 100 - sum);
+      var sum = order.reduce(function (s, g) { return s + g.pct; }, 0);
+      if (sum < 100) order.push({ name: 'Other', pct: 100 - sum, color: c.sources.Other });
       var cells = [];
-      groups.forEach(function (g) {
-        for (var i = 0; i < g.pct; i++) cells.push(g);
-      });
-      while (cells.length < 100) cells.push(groups[groups.length - 1]);
+      order.forEach(function (g) { for (var i = 0; i < g.pct; i++) cells.push(g); });
       cells = cells.slice(0, 100);
-      var size = 14, gap = 3, cols = 10;
+      while (cells.length < 100) cells.push({ name: 'Other', color: c.sources.Other });
+      var size = 16, gap = 3, cols = 10;
       var svg = d3.select(el).append('svg')
-        .attr('viewBox', '0 0 ' + (cols * (size + gap)) + ' ' + (10 * (size + gap) + 40));
+        .attr('viewBox', '0 0 ' + (cols * (size + gap) + 160) + ' ' + (10 * (size + gap) + 8));
       svg.selectAll('rect').data(cells).enter().append('rect')
         .attr('x', function (_, i) { return (i % cols) * (size + gap); })
         .attr('y', function (_, i) { return Math.floor(i / cols) * (size + gap); })
-        .attr('width', size).attr('height', size)
-        .attr('rx', 2).attr('fill', function (d) { return d.color; });
+        .attr('width', size).attr('height', size).attr('rx', 2)
+        .attr('fill', function (d) { return d.color; });
+      var leg = svg.append('g').attr('transform', 'translate(' + (cols * (size + gap) + 16) + ',4)');
+      order.forEach(function (g, i) {
+        var row = leg.append('g').attr('transform', 'translate(0,' + (i * 18) + ')');
+        row.append('rect').attr('width', 12).attr('height', 12).attr('rx', 2).attr('fill', g.color);
+        row.append('text').attr('x', 18).attr('y', 10).attr('fill', c.heading).attr('font-size', 12)
+          .text(g.name + ' ' + g.pct + '%');
+      });
     }
 
-    /* ========== 6 CIRCLE PACK ========== */
+    /* 6 CIRCLE PACK */
     function chart6() {
-      var el = clear('c6'); if (!el) return;
+      var el = clear('c6'); if (!el || !window.d3) return;
       var c = colors();
       var topSrc = ['Nuclear', 'Hydropower', 'Wind', 'Solar', 'Gas', 'Coal'];
+      var picked = ['Germany', 'France', 'United Kingdom', 'Spain', 'Norway', 'Poland'];
       var rootData = {
-        name: 'Europe sample',
-        children: mix2024.filter(function (d) {
-          return ['Germany', 'France', 'United Kingdom', 'Spain', 'Norway', 'Poland'].indexOf(d.country) >= 0;
-        }).map(function (d) {
+        name: 'sample',
+        children: mix2024.filter(function (d) { return picked.indexOf(d.country) >= 0; }).map(function (d) {
           return {
             name: d.country,
             children: topSrc.map(function (k) {
               return { name: k, value: Math.max(0.01, d[k] || 0) };
-            }).filter(function (x) { return x.value > 1; })
+            }).filter(function (x) { return x.value > 2; })
           };
         })
       };
-      var w = Math.min(640, el.clientWidth || 640);
-      var root = d3.hierarchy(rootData).sum(function (d) { return d.value || 0; }).sort(function (a, b) { return b.value - a.value; });
-      d3.pack().size([w, w]).padding(3)(root);
+      var w = Math.min(560, el.clientWidth || 560);
+      var root = d3.hierarchy(rootData).sum(function (d) { return d.value || 0; }).sort(function (a, b) { return (b.value || 0) - (a.value || 0); });
+      d3.pack().size([w, w]).padding(4)(root);
       var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + w + ' ' + w);
       var nodes = root.descendants().filter(function (d) { return d.depth > 0; });
       svg.selectAll('circle').data(nodes).enter().append('circle')
         .attr('cx', function (d) { return d.x; }).attr('cy', function (d) { return d.y; })
         .attr('r', function (d) { return d.r; })
         .attr('fill', function (d) {
-          if (d.depth === 1) return 'rgba(45,212,191,0.12)';
+          if (d.depth === 1) return 'rgba(45,212,191,0.1)';
           return c.sources[d.data.name] || '#64748b';
         })
-        .attr('stroke', function (d) { return d.depth === 1 ? c.teal : 'transparent'; })
+        .attr('stroke', function (d) { return d.depth === 1 ? c.teal : 'rgba(0,0,0,0.15)'; })
         .attr('stroke-width', 1);
-      svg.selectAll('text').data(nodes.filter(function (d) { return d.depth === 1 && d.r > 28; })).enter().append('text')
+      svg.selectAll('text').data(nodes.filter(function (d) { return d.depth === 1 && d.r > 30; })).enter().append('text')
         .attr('x', function (d) { return d.x; }).attr('y', function (d) { return d.y; })
         .attr('text-anchor', 'middle').attr('dy', '0.35em')
-        .attr('fill', c.heading).attr('font-size', 11)
+        .attr('fill', c.heading).attr('font-size', 12).attr('font-weight', 600)
         .text(function (d) { return d.data.name; });
     }
 
-    /* ========== 7 DUMBBELL ========== */
+    /* 7 DUMBBELL */
     function chart7() {
-      var el = clear('c7'); if (!el) return;
+      var el = clear('c7'); if (!el || !window.d3) return;
       var c = colors();
       var data = coalChange.slice().sort(function (a, b) { return b.y2020 - a.y2020; });
-      var m = { t: 8, r: 48, b: 28, l: 100 };
-      var w = Math.min(700, el.clientWidth || 700) - m.l - m.r;
-      var h = data.length * 32;
+      var m = { t: 8, r: 56, b: 28, l: 110 };
+      var w = Math.max(280, Math.min(720, (el.clientWidth || 720) - m.l - m.r));
+      var h = data.length * 34;
       var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + (w + m.l + m.r) + ' ' + (h + m.t + m.b));
       var g = svg.append('g').attr('transform', 'translate(' + m.l + ',' + m.t + ')');
-      var y = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, h]).padding(0.3);
-      var x = d3.scaleLinear().domain([0, d3.max(data, function (d) { return Math.max(d.y2020, d.y2024); }) * 1.1]).range([0, w]);
+      var y = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, h]).padding(0.35);
+      var x = d3.scaleLinear().domain([0, d3.max(data, function (d) { return Math.max(d.y2020, d.y2024); }) * 1.12]).range([0, w]);
       g.selectAll('line').data(data).enter().append('line')
         .attr('x1', function (d) { return x(d.y2020); }).attr('x2', function (d) { return x(d.y2024); })
         .attr('y1', function (d) { return y(d.country) + y.bandwidth() / 2; })
         .attr('y2', function (d) { return y(d.country) + y.bandwidth() / 2; })
-        .attr('stroke', c.grid).attr('stroke-width', 3);
+        .attr('stroke', c.grid).attr('stroke-width', 4).attr('stroke-linecap', 'round');
       g.selectAll('circle.a').data(data).enter().append('circle')
         .attr('cx', function (d) { return x(d.y2020); })
         .attr('cy', function (d) { return y(d.country) + y.bandwidth() / 2; })
-        .attr('r', 6).attr('fill', c.coral);
+        .attr('r', 7).attr('fill', c.coral);
       g.selectAll('circle.b').data(data).enter().append('circle')
         .attr('cx', function (d) { return x(d.y2024); })
         .attr('cy', function (d) { return y(d.country) + y.bandwidth() / 2; })
-        .attr('r', 6).attr('fill', c.teal);
+        .attr('r', 7).attr('fill', c.teal);
       g.append('g').call(d3.axisLeft(y).tickSize(0)).selectAll('text').attr('fill', c.heading).attr('font-size', 12);
       g.select('.domain').remove();
       g.append('g').attr('transform', 'translate(0,' + h + ')').call(d3.axisBottom(x).ticks(5))
         .selectAll('text').attr('fill', c.text).attr('font-size', 11);
     }
 
-    /* ========== 8 STACKED BAR (absolute) ========== */
+    /* 8 STACKED absolute */
     function chart8() {
-      var el = clear('c8'); if (!el) return;
+      var el = clear('c8'); if (!el || !window.d3) return;
       var c = colors();
-      var src = ['Nuclear', 'Hydropower', 'Wind', 'Solar', 'Bioenergy', 'Gas', 'Coal', 'Oil'];
+      var src = sources.slice();
       var data = mix2024.slice().sort(function (a, b) { return totalOf(b) - totalOf(a); });
       var stacked = d3.stack().keys(src)(data);
-      var m = { t: 8, r: 12, b: 36, l: 44 };
-      var w = Math.min(700, el.clientWidth || 700) - m.l - m.r;
+      var m = { t: 8, r: 8, b: 48, l: 48 };
+      var w = Math.max(280, Math.min(720, (el.clientWidth || 720) - m.l - m.r));
       var h = 300;
       var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + (w + m.l + m.r) + ' ' + (h + m.t + m.b));
       var g = svg.append('g').attr('transform', 'translate(' + m.l + ',' + m.t + ')');
-      var x = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, w]).padding(0.2);
+      var x = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, w]).padding(0.18);
       var y = d3.scaleLinear().domain([0, d3.max(data, totalOf) * 1.05]).nice().range([h, 0]);
       g.append('g').attr('transform', 'translate(0,' + h + ')').call(d3.axisBottom(x))
-        .selectAll('text').attr('fill', c.text).attr('font-size', 10).attr('transform', 'rotate(-25)').attr('text-anchor', 'end');
+        .selectAll('text').attr('fill', c.text).attr('font-size', 10).attr('transform', 'rotate(-28)').style('text-anchor', 'end');
       g.append('g').call(d3.axisLeft(y).ticks(6)).selectAll('text').attr('fill', c.text).attr('font-size', 11);
       g.selectAll('g.layer').data(stacked).enter().append('g')
         .attr('fill', function (d) { return c.sources[d.key] || '#888'; })
@@ -473,39 +476,60 @@
         .attr('height', function (d) { return Math.max(0, y(d[0]) - y(d[1])); });
     }
 
-    /* ========== 9 PIE ========== */
+    /* 9 PIE */
     function chart9() {
-      var el = clear('c9'); if (!el) return;
+      var el = clear('c9'); if (!el || !window.d3) return;
       var c = colors();
       var uk = mix2024.find(function (d) { return d.country === 'United Kingdom'; });
       var parts = ['Wind', 'Gas', 'Nuclear', 'Bioenergy', 'Solar', 'Oil', 'Hydropower', 'Coal']
         .map(function (k) { return { name: k, value: uk[k] || 0 }; })
-        .filter(function (d) { return d.value > 0.5; });
-      var w = 320, h = 320, r = Math.min(w, h) / 2 - 8;
-      var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + w + ' ' + (h + 80));
-      var g = svg.append('g').attr('transform', 'translate(' + w / 2 + ',' + h / 2 + ')');
+        .filter(function (d) { return d.value > 0.4; });
+      var w = 340, h = 300, r = 120;
+      var svg = d3.select(el).append('svg').attr('viewBox', '0 0 ' + w + ' ' + (h + 90));
+      var g = svg.append('g').attr('transform', 'translate(' + w / 2 + ',' + (h / 2) + ')');
       var pie = d3.pie().value(function (d) { return d.value; }).sort(null);
       var arc = d3.arc().innerRadius(0).outerRadius(r);
       g.selectAll('path').data(pie(parts)).enter().append('path')
         .attr('d', arc)
         .attr('fill', function (d) { return c.sources[d.data.name] || '#888'; })
-        .attr('stroke', root.getAttribute('data-theme') === 'light' ? '#fff' : '#0a1628')
-        .attr('stroke-width', 1.5);
-      var legend = svg.append('g').attr('transform', 'translate(20,' + (h + 8) + ')');
+        .attr('stroke', (root.getAttribute('data-theme') || 'dark') === 'dark' ? '#0a1628' : '#fff')
+        .attr('stroke-width', 2);
+      var legend = svg.append('g').attr('transform', 'translate(16,' + (h + 8) + ')');
       parts.forEach(function (p, i) {
-        var row = legend.append('g').attr('transform', 'translate(' + (i % 4) * 75 + ',' + Math.floor(i / 4) * 16 + ')');
-        row.append('rect').attr('width', 10).attr('height', 10).attr('fill', c.sources[p.name]);
-        row.append('text').attr('x', 14).attr('y', 9).attr('fill', c.text).attr('font-size', 10)
+        var row = legend.append('g').attr('transform', 'translate(' + (i % 4) * 80 + ',' + Math.floor(i / 4) * 18 + ')');
+        row.append('rect').attr('width', 11).attr('height', 11).attr('rx', 2).attr('fill', c.sources[p.name]);
+        row.append('text').attr('x', 16).attr('y', 10).attr('fill', c.text).attr('font-size', 11)
           .text(p.name + ' ' + p.value.toFixed(0));
       });
     }
 
     function drawAll() {
-      chart1(); chart2(); chart3(); chart4(); chart5();
-      chart6(); chart7(); chart8(); chart9();
+      if (!window.d3) {
+        document.querySelectorAll('.d3-host').forEach(function (el) {
+          el.innerHTML = '<p class="chart-error">D3 failed to load. Check network / CDN.</p>';
+        });
+        return;
+      }
+      safe(chart1, 'c1');
+      safe(chart2, 'c2');
+      safe(chart3, 'c3');
+      safe(chart4, 'c4');
+      safe(chart5, 'c5');
+      safe(chart6, 'c6');
+      safe(chart7, 'c7');
+      safe(chart8, 'c8');
+      safe(chart9, 'c9');
     }
-    drawAll();
-    window.addEventListener('resize', drawAll);
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', drawAll);
+    } else {
+      drawAll();
+    }
+    window.addEventListener('resize', function () {
+      clearTimeout(window.__chartsResize);
+      window.__chartsResize = setTimeout(drawAll, 150);
+    });
   })();
   </script>
 </body>
