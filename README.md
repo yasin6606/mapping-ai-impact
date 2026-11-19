@@ -2,7 +2,7 @@
 
 **Università di Genova** · Course project *Mapping the Impact of AI through Data*  
 **Group:** Insights  
-**Team members:** Yasin · Bahar · Pantea · Ferdaws
+**Team members:** Yasin · Bahareh · Pantea · Ferdaws
 
 Interactive website that maps electricity, water and carbon footprints of AI using open data.
 
