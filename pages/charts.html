@@ -137,7 +137,8 @@
   <script>
   (function () {
     var root = document.documentElement, key = 'insights-theme';
-    var saved = localStorage.getItem(key);
+    var saved = null;
+    try { saved = localStorage.getItem(key); } catch (_) { /* Storage may be disabled. */ }
     if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
     function syncTheme() {
       var t = root.getAttribute('data-theme') || 'dark';
@@ -148,7 +149,7 @@
     function toggleTheme() {
       var n = (root.getAttribute('data-theme') || 'dark') === 'dark' ? 'light' : 'dark';
       root.setAttribute('data-theme', n);
-      localStorage.setItem(key, n);
+      try { localStorage.setItem(key, n); } catch (_) { /* Theme still works for this page session. */ }
       syncTheme();
       drawAll();
     }
@@ -290,7 +291,7 @@
       var x = d3.scaleBand().domain(src).range([0, w]).padding(0.06);
       var y = d3.scaleBand().domain(data.map(function (d) { return d.country; })).range([0, h]).padding(0.06);
       var maxV = d3.max(data, function (d) { return d3.max(src, function (k) { return d[k]; }); }) || 1;
-      var col = d3.scaleSequential(d3.interpolateTurquoise).domain([0, maxV]);
+      var col = d3.scaleSequential(d3.interpolateGnBu).domain([0, maxV]);
       data.forEach(function (row) {
         src.forEach(function (k) {
           g.append('rect')
