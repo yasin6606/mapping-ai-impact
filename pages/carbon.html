@@ -88,11 +88,11 @@
   </footer>
   <script>
   (function(){
-    var root=document.documentElement,key='insights-theme',s=localStorage.getItem(key);
+    var root=document.documentElement,key='insights-theme',s=null;try{s=localStorage.getItem(key);}catch(_){}
     if(s==='light'||s==='dark')root.setAttribute('data-theme',s);
     function sync(){var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});}
     sync();
-    function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);localStorage.setItem(key,n);sync();redraw();}
+    function toggle(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem(key,n);}catch(_){}sync();redraw();}
     document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggle);});
     function redraw(){
       if(window.InsightsCharts){
