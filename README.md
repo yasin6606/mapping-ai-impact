@@ -29,6 +29,7 @@ https://github.com/yasin6606/mapping-ai-impact
 index.html          ← main page
 css/styles.css      ← liquid glass design (Roboto Slab + Fira Sans)
 pages/
+  trends.html       ← time-series, distribution, scatter and ridgeline charts
   energy.html       ← electricity demand & growth
   water.html        ← cooling & WUE
   carbon.html       ← training emissions & grid context
@@ -38,6 +39,7 @@ pages/
 
 - [x] Public GitHub repo + GitHub Pages
 - [x] `index.html` with title, group + members, project description, secondary-page previews
+- [x] Trends & distributions page with a time series, box plot, jitter plot, scatter plot and ridgeline plot
 - [x] Semantic HTML5 (headings, paragraphs, lists)
 - [x] All CSS in dedicated file; SVG styled only via selectors (no inline styles)
 - [x] Roboto Slab (titles) + Fira Sans (body)
