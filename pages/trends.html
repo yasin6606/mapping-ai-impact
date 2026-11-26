@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trends & distributions · Group Insights</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:wght@300;400;500;600&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <style>
+    .trend-jumps { display:flex; flex-wrap:wrap; gap:.55rem; margin-top:1.2rem; }
+    .trend-jumps a { border:1px solid var(--glass-border); border-radius:999px; padding:.35rem .75rem; text-decoration:none; font-size:.82rem; }
+    .trend-card { margin-bottom:1.35rem; }
+    .trend-card h2 { font-size:1.25rem; margin:0 0 .45rem; }
+    .trend-card .chart-desc { color:var(--text-soft); margin:0 0 .9rem; }
+    .trend-host { width:100%; min-height:180px; overflow-x:auto; }
+    .trend-host svg { display:block; width:100%; max-width:820px; height:auto; margin:0 auto; }
+    .trend-host .axis text { fill:var(--text-soft); font:11px "Fira Sans",sans-serif; }
+    .trend-host .axis path,.trend-host .axis line { stroke:var(--text-soft); opacity:.45; }
+    .trend-host .grid line { stroke:var(--text-soft); opacity:.18; stroke-dasharray:3 4; }
+    .trend-host .grid path { display:none; }
+    .trend-legend { color:var(--text-soft); font-size:.82rem; margin:.55rem 0 0; }
+    .trend-error { color:var(--coral); }
+    @media(max-width:620px){.trend-jumps{gap:.35rem}.trend-jumps a{font-size:.75rem}}
+  </style>
+</head>
+<body>
+  <div class="blob blob-1" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <svg class="unige-mark" viewBox="0 0 60 60" aria-hidden="true">
+          <circle class="mark-outer" cx="30" cy="30" r="28"/>
+          <path class="mark-shield" d="M30 8 L48 16 L48 36 Q48 48 30 54 Q12 48 12 36 L12 16 Z"/>
+          <text class="mark-text" x="30" y="36" text-anchor="middle">UniGe</text>
+        </svg>
+        <div class="brand-text"><span class="brand-title">AI · Environment</span><span class="brand-sub">Group Insights</span></div>
+      </div>
+      <div class="header-actions">
+        <nav class="main-nav" aria-label="Main"><ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../comparing.html">Comparisons</a></li>
+          <li><a href="trends.html" class="active" aria-current="page">Trends & distributions</a></li>
+          <li><a href="energy.html">Energy</a></li>
+          <li><a href="europe.html">Europe</a></li>
+          <li><a href="charts.html">Mix charts</a></li>
+          <li><a href="water.html">Water</a></li>
+          <li><a href="carbon.html">Carbon</a></li>
+        </ul></nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle theme">◐</button>
+      </div>
+    </div>
+  </header>
+  <button class="theme-toggle-fixed" type="button" aria-label="Toggle theme">◐</button>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">New section · Time and distribution</p>
+        <h1>Trends & distributions in AI’s energy context</h1>
+        <p class="subtitle">Five views of change, variation and relationships · Global demand and European electricity mix</p>
+        <p class="hero-lead">A single average can hide important differences. These visualizations follow data-centre electricity over time and compare how electricity generation is distributed across ten European countries. The country-level charts use the same 2024 electricity-mix data already presented in Mix charts; the coal ridgeline compares the available 2020 and 2024 observations.</p>
+        <nav class="trend-jumps" aria-label="Jump to visualization">
+          <a href="#trend-time">01 Time series</a><a href="#trend-box">02 Box plot</a><a href="#trend-strip">03 Distribution</a><a href="#trend-scatter">04 Scatter</a><a href="#trend-ridge">05 Ridgeline</a>
+        </nav>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <article class="chart-wrap trend-card" id="trend-time">
+          <p class="eyebrow">01 · Mandatory · Time-dependent phenomenon</p>
+          <h2>Data-centre electricity demand is increasing</h2>
+          <p class="chart-desc">Global data-centre electricity consumption and the IEA-style Base outlook, in terawatt-hours (TWh). The dashed segment marks the 2030 projection; it is not an AI-only estimate.</p>
+          <div id="trend-line" class="trend-host" role="img" aria-label="Line chart of global data-centre electricity from 2020 to 2030, including a projected 2030 value"></div>
+          <p class="chart-note">Values are the rounded figures already used on the project’s Energy page: 2020 269, 2023 361, 2024 416, 2025 485 TWh, and Base case 2030 950 TWh. Historical/recent values and projection are distinguished.</p>
+        </article>
+
+        <article class="chart-wrap trend-card" id="trend-box">
+          <p class="eyebrow">02 · Mandatory · Distribution</p>
+          <h2>How widely does low-carbon generation vary?</h2>
+          <p class="chart-desc">Box plot of the low-carbon share (wind + solar + hydropower + nuclear) across the ten countries in the 2024 sample. Dots show each country’s individual observation.</p>
+          <div id="trend-boxplot" class="trend-host" role="img" aria-label="Box plot showing distribution of low-carbon electricity generation shares across ten European countries"></div>
+          <p class="chart-note">Country percentages are calculated from the existing 2024 electricity-mix values. The box spans the interquartile range; the centre line is the median; whiskers show the sample minimum and maximum.</p>
+        </article>
+
+        <article class="chart-wrap trend-card" id="trend-strip">
+          <p class="eyebrow">03 · Distribution · Country-level spread</p>
+          <h2>Fossil generation shares differ across countries</h2>
+          <p class="chart-desc">A jitter/strip plot of fossil generation (gas + coal + oil) as a percentage of each country’s total electricity generation in 2024. Each point represents one country.</p>
+          <div id="trend-stripplot" class="trend-host" role="img" aria-label="Jitter plot of fossil electricity shares for ten European countries"></div>
+          <p class="chart-note">Percentages are derived from the same 2024 country totals as the Mix charts. This describes national electricity systems, not the electricity consumed by AI facilities.</p>
+        </article>
+
+        <article class="chart-wrap trend-card" id="trend-scatter">
+          <p class="eyebrow">04 · Relationship · Scatter plot</p>
+          <h2>Low-carbon and fossil shares form contrasting profiles</h2>
+          <p class="chart-desc">Each point is a country. The horizontal axis shows low-carbon generation share; the vertical axis shows fossil generation share. The two measures need not sum to 100% because bioenergy and other categories are treated separately.</p>
+          <div id="trend-scatterplot" class="trend-host" role="img" aria-label="Scatter plot comparing low-carbon and fossil generation shares for ten European countries"></div>
+          <p class="chart-note">Both axes are calculated from the 2024 electricity-mix data. The chart is descriptive and does not establish a causal relationship.</p>
+        </article>
+
+        <article class="chart-wrap trend-card" id="trend-ridge">
+          <p class="eyebrow">05 · Extra · Ridgeline plot (time + distribution)</p>
+          <h2>Coal generation distributions shifted between 2020 and 2024</h2>
+          <p class="chart-desc">Ridgeline density curves compare the distribution of coal generation across eight European countries in 2020 and 2024. Each ridge summarizes country-level observations for one year; the curves are smoothed representations, not additional measurements.</p>
+          <div id="trend-ridgeline" class="trend-host" role="img" aria-label="Ridgeline plot comparing the distribution of coal electricity generation across eight European countries in 2020 and 2024"></div>
+          <p class="chart-note">Exact 2020 and 2024 coal TWh values are copied from the existing Mix charts data. Gaussian kernel density is used only to display the distribution. Countries included: Germany, Poland, Italy, Netherlands, United Kingdom, Spain, France and Ireland.</p>
+        </article>
+
+        <div class="highlight-box">
+          <h3>How to interpret this section</h3>
+          <ul>
+            <li>The global time series is about all data centres; it must not be read as AI-only electricity use.</li>
+            <li>Country charts show national electricity-generation context. They are not measurements of individual data centres.</li>
+            <li>Box, strip, scatter and ridgeline plots reveal variation that a single average can hide.</li>
+            <li>Country shares are derived from the same source values used by the existing Mix charts. No original project data or existing visualizations have been replaced.</li>
+          </ul>
+        </div>
+        <div class="highlight-box">
+          <h3>Data sources & method</h3>
+          <ul>
+            <li>Global data-centre demand: rounded IEA-linked figures already documented on the Energy page.</li>
+            <li>European electricity generation: electricity-mix.csv (Ember / Our World in Data), the same 2024 values used on the Mix charts page.</li>
+            <li>Coal time comparison: existing 2020 and 2024 country values in pages/charts.html.</li>
+            <li>Charts: D3.js v7. All country shares are calculated in the browser from the displayed source values.</li>
+          </ul>
+          <p>For definitions, source notes and the wider project context, see <a href="energy.html">Energy</a>, <a href="charts.html">Mix charts</a> and <a href="../index.html">the homepage</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="container"><p>© 2026 Group Insights · Pantea, Bahareh, Yasin, Ferdaws · Università di Genova</p></div></footer>
+
+  <script>
+  (function () {
+    var root = document.documentElement, key = 'insights-theme';
+    var saved = null;
+    try { saved = localStorage.getItem(key); } catch (_) {}
+    if (saved === 'light' || saved === 'dark') root.setAttribute('data-theme', saved);
+
+    var mix = [
+      {country:'Germany',Wind:141.60,Solar:74.13,Hydropower:23.83,Nuclear:0,Gas:78.41,Coal:106.33,Oil:20.39,Bioenergy:51.08},
+      {country:'France',Wind:45.43,Solar:24.87,Hydropower:71.12,Nuclear:380.45,Gas:18.10,Coal:1.02,Oil:9.54,Bioenergy:10.68},
+      {country:'United Kingdom',Wind:83.28,Solar:14.79,Hydropower:5.76,Nuclear:40.59,Gas:86.30,Coal:1.90,Oil:11.45,Bioenergy:40.09},
+      {country:'Spain',Wind:62.20,Solar:58.29,Hydropower:34.41,Nuclear:54.53,Gas:52.34,Coal:2.58,Oil:10.41,Bioenergy:6.17},
+      {country:'Italy',Wind:22.22,Solar:35.99,Hydropower:53.13,Nuclear:0,Gas:118.59,Coal:3.95,Oil:10.78,Bioenergy:17.23},
+      {country:'Netherlands',Wind:33.48,Solar:21.82,Hydropower:0.09,Nuclear:3.57,Gas:44.29,Coal:7.47,Oil:4.93,Bioenergy:6.68},
+      {country:'Poland',Wind:25.89,Solar:17.66,Hydropower:2.11,Nuclear:0,Gas:20.46,Coal:93.50,Oil:4.55,Bioenergy:7.95},
+      {country:'Sweden',Wind:40.45,Solar:4.16,Hydropower:64.61,Nuclear:50.67,Gas:0.11,Coal:0,Oil:1.97,Bioenergy:10.18},
+      {country:'Norway',Wind:14.60,Solar:0.53,Hydropower:139.55,Nuclear:0,Gas:1.47,Coal:0,Oil:0.72,Bioenergy:0.24},
+      {country:'Ireland',Wind:11.60,Solar:1.09,Hydropower:0.77,Nuclear:0,Gas:15.10,Coal:0.63,Oil:0.89,Bioenergy:1.00}
+    ];
+    var coal = [
+      {country:'Germany',y2020:134.60,y2024:106.33},
+      {country:'Poland',y2020:107.40,y2024:93.50},
+      {country:'Italy',y2020:13.38,y2024:3.95},
+      {country:'Netherlands',y2020:7.62,y2024:7.47},
+      {country:'United Kingdom',y2020:5.70,y2024:1.90},
+      {country:'Spain',y2020:5.52,y2024:2.58},
+      {country:'France',y2020:3.09,y2024:1.02},
+      {country:'Ireland',y2020:0.67,y2024:0.63}
+    ];
+    var low = ['Wind','Solar','Hydropower','Nuclear'], fossil = ['Gas','Coal','Oil'];
+    var profiles = mix.map(function (d) {
+      var total = Object.keys(d).filter(function(k){return k!=='country';}).reduce(function(s,k){return s+d[k];},0);
+      var lowValue = low.reduce(function(s,k){return s+d[k];},0)/total*100;
+      var fossilValue = fossil.reduce(function(s,k){return s+d[k];},0)/total*100;
+      return {country:d.country,low:lowValue,fossil:fossilValue};
+    });
+    function palette() {
+      var dark = (root.getAttribute('data-theme') || 'dark') === 'dark';
+      return {text:dark?'#94a3b8':'#64748b',heading:dark?'#e2e8f0':'#1e293b',grid:dark?'#64748b':'#94a3b8',teal:dark?'#2dd4bf':'#0d9488',coral:dark?'#fb923c':'#ea580c',mint:dark?'#5eead4':'#0f766e'};
+    }
+    function host(id,w,h,m) {
+      var el=document.getElementById(id); if(!el || !window.d3) return null;
+      el.innerHTML='';
+      var svg=d3.select(el).append('svg').attr('viewBox','0 0 '+w+' '+h).attr('role','presentation');
+      var g=svg.append('g').attr('transform','translate('+m.l+','+m.t+')');
+      return {el:el,svg:svg,g:g,w:w-m.l-m.r,h:h-m.t-m.b};
+    }
+    function axes(g,x,y,w,h,p) {
+      g.append('g').attr('class','grid').call(d3.axisLeft(y).ticks(5).tickSize(-w).tickFormat(''));
+      g.append('g').attr('class','axis').attr('transform','translate(0,'+h+')').call(d3.axisBottom(x));
+      g.append('g').attr('class','axis').call(d3.axisLeft(y));
+    }
+    function lineChart() {
+      var p=palette(),m={l:64,r:24,t:18,b:48},c=host('trend-line',820,370,m); if(!c)return;
+      var data=[{year:2020,value:269},{year:2023,value:361},{year:2024,value:416},{year:2025,value:485},{year:2030,value:950}];
+      var x=d3.scaleLinear().domain([2020,2030]).range([0,c.w]),y=d3.scaleLinear().domain([0,1050]).range([c.h,0]);
+      axes(c.g,x,y,c.w,c.h,p);
+      c.g.append('text').attr('x',-c.h/2).attr('y',-47).attr('transform','rotate(-90)').attr('text-anchor','middle').attr('fill',p.text).attr('font-size',11).text('Electricity (TWh)');
+      var hist=data.slice(0,4),proj=data.slice(3);
+      var curve=d3.line().x(function(d){return x(d.year);}).y(function(d){return y(d.value);}).curve(d3.curveMonotoneX);
+      c.g.append('path').datum(hist).attr('d',curve).attr('fill','none').attr('stroke',p.teal).attr('stroke-width',3);
+      c.g.append('path').datum(proj).attr('d',curve).attr('fill','none').attr('stroke',p.coral).attr('stroke-width',3).attr('stroke-dasharray','7 5');
+      c.g.selectAll('.hist-dot').data(hist).enter().append('circle').attr('cx',d=>x(d.year)).attr('cy',d=>y(d.value)).attr('r',5).attr('fill',p.teal);
+      c.g.append('circle').attr('cx',x(2030)).attr('cy',y(950)).attr('r',5).attr('fill',p.coral);
+      c.g.append('text').attr('x',x(2030)-6).attr('y',y(950)-12).attr('text-anchor','end').attr('fill',p.coral).attr('font-weight',600).text('950 TWh · Base');
+      c.g.append('text').attr('x',8).attr('y',12).attr('fill',p.teal).attr('font-size',11).text('Historical / recent');
+      c.g.append('text').attr('x',150).attr('y',12).attr('fill',p.coral).attr('font-size',11).text('Projection');
+    }
+    function boxPlot() {
+      var p=palette(),m={l:64,r:24,t:22,b:48},c=host('trend-boxplot',820,270,m); if(!c)return;
+      var values=profiles.map(d=>d.low).sort(d3.ascending);
+      var q1=d3.quantile(values,.25),med=d3.quantile(values,.5),q3=d3.quantile(values,.75),min=values[0],max=values[values.length-1];
+      var x=d3.scaleLinear().domain([0,100]).range([0,c.w]);
+      var y=120,boxH=54;
+      c.g.append('g').attr('class','axis').attr('transform','translate(0,205)').call(d3.axisBottom(x).ticks(10).tickFormat(d=>d+'%'));
+      c.g.append('g').attr('class','grid').attr('transform','translate(0,205)').call(d3.axisBottom(x).ticks(10).tickSize(-160).tickFormat(''));
+      c.g.append('line').attr('x1',x(min)).attr('x2',x(max)).attr('y1',y).attr('y2',y).attr('stroke',p.text).attr('stroke-width',2);
+      [min,max].forEach(v=>c.g.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',y-12).attr('y2',y+12).attr('stroke',p.text).attr('stroke-width',2));
+      c.g.append('rect').attr('x',x(q1)).attr('y',y-boxH/2).attr('width',Math.max(1,x(q3)-x(q1))).attr('height',boxH).attr('rx',7).attr('fill',p.teal).attr('fill-opacity',.24).attr('stroke',p.teal).attr('stroke-width',2);
+      c.g.append('line').attr('x1',x(med)).attr('x2',x(med)).attr('y1',y-boxH/2).attr('y2',y+boxH/2).attr('stroke',p.coral).attr('stroke-width',3);
+      var jitter=profiles.map((d,i)=>({value:d.low,y:y+(i%5-2)*9,country:d.country}));
+      c.g.selectAll('.country-point').data(jitter).enter().append('circle').attr('cx',d=>x(d.value)).attr('cy',d=>d.y).attr('r',4).attr('fill',p.heading).attr('stroke',p.teal).attr('stroke-width',1.5).append('title').text(d=>d.country+': '+d.value.toFixed(1)+'%');
+      c.g.append('text').attr('x',0).attr('y',18).attr('fill',p.text).attr('font-size',11).text('Low-carbon share across 10 countries');
+      c.g.append('text').attr('x',c.w).attr('y',18).attr('text-anchor','end').attr('fill',p.text).attr('font-size',11).text('Median '+med.toFixed(1)+'%');
+    }
+    function stripPlot() {
+      var p=palette(),m={l:130,r:30,t:12,b:42},c=host('trend-stripplot',820,410,m); if(!c)return;
+      var data=profiles.slice().sort((a,b)=>a.fossil-b.fossil);
+      var x=d3.scaleLinear().domain([0,100]).range([0,c.w]),y=d3.scaleBand().domain(data.map(d=>d.country)).range([0,c.h]).padding(.25);
+      c.g.append('g').attr('class','grid').call(d3.axisBottom(x).ticks(10).tickSize(c.h).tickFormat(''));
+      c.g.append('g').attr('class','axis').attr('transform','translate(0,'+c.h+')').call(d3.axisBottom(x).ticks(10).tickFormat(d=>d+'%'));
+      c.g.append('g').attr('class','axis').call(d3.axisLeft(y).tickSize(0));
+      c.g.selectAll('circle').data(data).enter().append('circle').attr('cx',d=>x(d.fossil)).attr('cy',d=>y(d.country)+y.bandwidth()/2).attr('r',6).attr('fill',p.coral).attr('stroke',p.heading).attr('stroke-width',1.2).append('title').text(d=>d.country+': '+d.fossil.toFixed(1)+'% fossil generation');
+      c.g.append('text').attr('x',c.w).attr('y',-2).attr('text-anchor','end').attr('fill',p.text).attr('font-size',11).text('Fossil share (%)');
+    }
+    function scatterPlot() {
+      var p=palette(),m={l:64,r:130,t:18,b:54},c=host('trend-scatterplot',820,390,m); if(!c)return;
+      var x=d3.scaleLinear().domain([0,100]).range([0,c.w]),y=d3.scaleLinear().domain([0,100]).range([c.h,0]);
+      axes(c.g,x,y,c.w,c.h,p);
+      c.g.append('text').attr('x',c.w/2).attr('y',c.h+42).attr('text-anchor','middle').attr('fill',p.text).text('Low-carbon share (%)');
+      c.g.append('text').attr('transform','rotate(-90)').attr('x',-c.h/2).attr('y',-45).attr('text-anchor','middle').attr('fill',p.text).text('Fossil share (%)');
+      c.g.selectAll('.country').data(profiles).enter().append('circle').attr('cx',d=>x(d.low)).attr('cy',d=>y(d.fossil)).attr('r',5.5).attr('fill',p.teal).attr('stroke',p.heading).attr('stroke-width',1.2).append('title').text(d=>d.country+' · low-carbon '+d.low.toFixed(1)+'% · fossil '+d.fossil.toFixed(1)+'%');
+      var labels=c.g.selectAll('.point-label').data(profiles).enter().append('text').attr('x',d=>x(d.low)+7).attr('y',d=>y(d.fossil)-7).attr('fill',p.text).attr('font-size',10).text(d=>d.country);
+      labels.filter(d=>d.country==='United Kingdom').attr('x',d=>x(d.low)-8).attr('text-anchor','end');
+    }
+    function kde(values,grid,bw) {
+      return grid.map(function(x){return {x:x,density:d3.mean(values,function(v){var z=(x-v)/bw;return Math.exp(-.5*z*z)/(bw*Math.sqrt(2*Math.PI));})};});
+    }
+    function ridgeline() {
+      var p=palette(),m={l:78,r:32,t:24,b:48},c=host('trend-ridgeline',820,340,m); if(!c)return;
+      var grid=d3.range(0,151,1),years=[{year:'2020',key:'y2020',color:p.coral},{year:'2024',key:'y2024',color:p.teal}];
+      var x=d3.scaleLinear().domain([0,150]).range([0,c.w]),base=[115,245],bw=13;
+      c.g.append('g').attr('class','axis').attr('transform','translate(0,'+(c.h-12)+')').call(d3.axisBottom(x).ticks(10).tickFormat(d=>d+' TWh'));
+      years.forEach(function(yr,i){
+        var vals=coal.map(d=>d[yr.key]),density=kde(vals,grid,bw),maxD=d3.max(density,d=>d.density);
+        var yScale=d3.scaleLinear().domain([0,maxD]).range([0,82]);
+        var area=d3.area().x(d=>x(d.x)).y0(base[i]).y1(d=>base[i]-yScale(d.density)).curve(d3.curveBasis);
+        c.g.append('path').datum(density).attr('d',area).attr('fill',yr.color).attr('fill-opacity',.28).attr('stroke',yr.color).attr('stroke-width',2);
+        c.g.append('line').attr('x1',0).attr('x2',c.w).attr('y1',base[i]).attr('y2',base[i]).attr('stroke',p.text).attr('opacity',.35);
+        c.g.append('text').attr('x',-12).attr('y',base[i]-32).attr('text-anchor','end').attr('fill',yr.color).attr('font-weight',600).text(yr.year);
+        vals.forEach(function(v){c.g.append('line').attr('x1',x(v)).attr('x2',x(v)).attr('y1',base[i]-4).attr('y2',base[i]+4).attr('stroke',yr.color).attr('stroke-width',1.5).attr('opacity',.9);});
+      });
+      c.g.append('text').attr('x',c.w).attr('y',12).attr('text-anchor','end').attr('fill',p.text).attr('font-size',11).text('Kernel density of country values · bandwidth 13 TWh');
+    }
+    function redraw() {
+      if(!window.d3) return;
+      try { lineChart(); boxPlot(); stripPlot(); scatterPlot(); ridgeline(); }
+      catch(e) { console.error('Trends & distributions chart error',e); }
+    }
+    function syncTheme() {
+      var t=root.getAttribute('data-theme')||'dark',label=t==='dark'?'☀':'☾';
+      document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.textContent=label;});
+    }
+    syncTheme();
+    function toggleTheme(){var n=(root.getAttribute('data-theme')||'dark')==='dark'?'light':'dark';root.setAttribute('data-theme',n);try{localStorage.setItem(key,n);}catch(_){}syncTheme();redraw();}
+    document.querySelectorAll('.theme-toggle,.theme-toggle-fixed').forEach(function(b){b.addEventListener('click',toggleTheme);});
+    redraw();
+    window.addEventListener('resize',redraw);
+  })();
+  </script>
+</body>
+</html>
