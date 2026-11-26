@@ -25,7 +25,7 @@
   });
 
   var sortControl = document.getElementById('bar-order');
-  sortControl.addEventListener('change', function () {
+  if (sortControl) sortControl.addEventListener('change', function () {
     var groups = Array.from(document.querySelectorAll('.country-bar'));
     groups.sort(function (a, b) {
       return sortControl.value === 'name'
@@ -52,7 +52,8 @@
     rank.slice(0, missing).forEach(function (i) { counts[i] += 1; });
     return counts;
   }
-  document.getElementById('waffle-country').addEventListener('change', function (event) {
+  var waffleCountry = document.getElementById('waffle-country');
+  if (waffleCountry) waffleCountry.addEventListener('change', function (event) {
     var row = rows.find(function (r) { return r.country === event.target.value; });
     if (!row) return;
     var counts = squareCounts(row);
